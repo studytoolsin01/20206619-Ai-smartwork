@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(주) 비에이텍 | 깨끗한 물을 만드는 기술</title>
+    <link rel="icon" type="image/png" href="certs/kc_cert.png"> <!-- 임시 파비콘 설정 -->
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="(주) 비에이텍 - 깨끗한 물을 만드는 기술, 워터 펌프 제작, 설치 및 유지보수 전문 기업">
+    <meta name="keywords" content="비에이텍, 워터펌프, 산업용펌프, 펌프설치, 펌프수리, 춘천펌프, 깨끗한물, 친환경기술">
+    
+    <!-- Open Graph / SNS -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://batech.co.kr">
+    <meta property="og:title" content="(주) 비에이텍 | 워터 펌프 전문 솔루션">
+    <meta property="og:description" content="산업 설비 전문성 기반의 신뢰할 수 있는 펌프 솔루션, 비에이텍입니다.">
+    <meta property="og:image" content="assets/brochure.png">
+
+    
+    <!-- Fonts: Pretendard -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">(주) 비에이텍</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link active-link">홈</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">회사소개</a></li>
+                    <li class="nav__item"><a href="equipment.html" class="nav__link">장비소개</a></li>
+                    <li class="nav__item"><a href="location.html" class="nav__link">오시는 길</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">고객문의</a></li>
+                    <li class="nav__item"><a href="employee.html" class="nav__link"><i class="ri-lock-line" style="font-size: 0.85rem; margin-right: 0.15rem; vertical-align: middle;"></i>임직원 포털</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Theme & BGM change buttons -->
+                <div class="nav__controls">
+                    <i class="ri-music-2-line bgm-button" id="bgm-button" title="BGM On/Off"></i>
+                    <i class="ri-moon-line change-theme" id="theme-button" title="다크모드 전환"></i>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Background Music -->
+    <audio id="site-bgm" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+        브라우저가 오디오 태그를 지원하지 않습니다.
+    </audio>
+
+    <main class="main">
+        <!-- Home Section -->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__title">깨끗한 물을 만드는 기술,<br>비에이텍</h1>
+                    <p class="home__description">
+                        최고의 기술력과 신뢰를 바탕으로 깨끗한 수자원 환경을 선도합니다. <br>
+                        산업용 워터 펌프 제작부터 설치, 유지보수까지 완벽한 솔루션을 제공합니다.
+                    </p>
+                    <div class="home__btns">
+                        <a href="about.html" class="button">회사 소개</a>
+                        <a href="contact.html" class="button button--ghost">문의하기</a>
+                    </div>
+
+                    <!-- Certification Badges -->
+                    <div class="home__certs">
+                        <a href="about.html#certs" class="cert__badge">
+                            <div class="cert__icon-placeholder"><i class="ri-shield-check-line"></i></div>
+                            <span>ISO9001</span>
+                        </a>
+                        <a href="about.html#certs" class="cert__badge">
+                            <div class="cert__icon-placeholder"><i class="ri-award-line"></i></div>
+                            <span>KC 인증</span>
+                        </a>
+                        <a href="about.html#certs" class="cert__badge">
+                            <div class="cert__icon-placeholder"><i class="ri-medal-line"></i></div>
+                            <span>MAIN-BIZ</span>
+                        </a>
+                    </div>
+                    <!-- [ADMIN NOTE] MAIN-BIZ 인증 유효기간: ~2027.09.13. 만료 전 갱신 필요 -->
+                </div>
+                
+                <div class="home__scroll">
+                    <span class="home__scroll-text">Explore More</span>
+                    <div class="home__scroll-mouse"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Products Section -->
+        <section class="products section" id="products">
+            <div class="container">
+                <h2 class="section__title">주요 생산 제품</h2>
+                <span class="section__subtitle">Professional Pump Lineup</span>
+
+                <div class="products__container grid">
+                    <div class="product__item">
+                        <div class="product__img-box">
+                            <img src="assets/index_multi_stage.png" alt="다단볼루트펌프">
+                        </div>
+                        <h3 class="product__title">다단볼루트펌프</h3>
+                    </div>
+                    <div class="product__item">
+                        <div class="product__img-box">
+                            <img src="assets/index_single_suction.png" alt="편흡입볼루트펌프">
+                        </div>
+                        <h3 class="product__title">편흡입볼루트펌프</h3>
+                    </div>
+                    <div class="product__item">
+                        <div class="product__img-box">
+                            <img src="assets/index_centrifugal.png" alt="원심펌프">
+                        </div>
+                        <h3 class="product__title">원심펌프</h3>
+                    </div>
+                </div>
+                
+                <div class="products__action">
+                    <a href="equipment.html" class="button--link">전체 제품 보기 <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card News Slider Section -->
+        <section class="card-news section" id="card-news">
+            <div class="container">
+                <h2 class="section__title">비에이텍 기술 인사이트</h2>
+                <span class="section__subtitle">Tech & Solution Card News</span>
+
+                <div class="card-news__slider">
+                    <div class="card-news__track" id="card-news-track">
+                        <!-- Card 1-10 -->
+                        <div class="card-news__item"><img src="card-news/1.png" alt="카드뉴스 1"></div>
+                        <div class="card-news__item"><img src="card-news/2.png" alt="카드뉴스 2"></div>
+                        <div class="card-news__item"><img src="card-news/3.png" alt="카드뉴스 3"></div>
+                        <div class="card-news__item"><img src="card-news/4.png" alt="카드뉴스 4"></div>
+                        <div class="card-news__item"><img src="card-news/5.png" alt="카드뉴스 5"></div>
+                        <div class="card-news__item"><img src="card-news/6.png" alt="카드뉴스 6"></div>
+                        <div class="card-news__item"><img src="card-news/7.png" alt="카드뉴스 7"></div>
+                        <div class="card-news__item"><img src="card-news/8.png" alt="카드뉴스 8"></div>
+                        <div class="card-news__item"><img src="card-news/9.png" alt="카드뉴스 9"></div>
+                        <div class="card-news__item"><img src="card-news/10.png" alt="카드뉴스 10"></div>
+                    </div>
+
+                    <!-- Slider Controls -->
+                    <div class="card-news__controls">
+                        <button class="slider-btn prev" id="card-prev"><i class="ri-arrow-left-s-line"></i></button>
+                        <div class="slider-dots" id="slider-dots"></div>
+                        <button class="slider-btn next" id="card-next"><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brief Features / Highlights for Home Page -->
+        <section class="features section">
+            <div class="container">
+                <h2 class="section__title">비에이텍의 핵심 경쟁력</h2>
+                <span class="section__subtitle">Core Competencies of BA-TECH</span>
+
+                <div class="features__container grid">
+                    <!-- Feature 1 -->
+                    <div class="strength__card">
+                        <div class="strength__img-box">
+                            <img src="assets/home_tech.png" alt="독보적 기술력" class="strength__img">
+                        </div>
+                        <h3 class="strength__title">독보적 기술력</h3>
+                        <p class="strength__desc">20년 이상의 업력을 바탕으로 한 정밀 펌프 설계 및 제조 노하우를 보유하고 있습니다.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="strength__card">
+                        <div class="strength__img-box">
+                            <img src="assets/cad_drawing.png" alt="커스텀 솔루션" class="strength__img">
+                        </div>
+                        <h3 class="strength__title">커스텀 솔루션</h3>
+                        <p class="strength__desc">표준 규격을 넘어 고객사의 특수한 설치 환경과 요구 조건에 완벽히 부합하는 맞춤형 제작을 수행합니다.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="strength__card">
+                        <div class="strength__img-box">
+                            <img src="assets/index_service.png" alt="신속 사후관리" class="strength__img">
+                        </div>
+                        <h3 class="strength__title">신속 사후관리</h3>
+                        <p class="strength__desc">전국적인 네트워크를 통해 24시간 내 신속한 A/S와 정기적인 점검 서비스를 제공합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Banner -->
+        <section class="cta section">
+            <div class="cta__container container grid">
+                <div class="cta__content">
+                    <h2 class="cta__title">완벽한 펌프 솔루션이 필요하신가요?</h2>
+                    <p class="cta__description">비에이텍의 전문가들이 최적의 시스템 설계를 도와드립니다.</p>
+                </div>
+                <div class="cta__btn">
+                    <a href="contact.html" class="button">지금 문의하기 <i class="ri-mail-send-line"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">(주) 비에이텍</h3>
+                <p class="footer__description">깨끗한 물을 만드는 기술로 내일을 설계합니다.</p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">메뉴</h3>
+                <ul>
+                    <li><a href="index.html" class="footer__link">홈</a></li>
+                    <li><a href="about.html" class="footer__link">회사소개</a></li>
+                    <li><a href="equipment.html" class="footer__link">장비소개</a></li>
+                    <li><a href="contact.html" class="footer__link">문의하기</a></li>
+                    <li><a href="employee.html" class="footer__link" style="opacity: 0.4; font-size: 0.8rem; margin-top: 0.5rem; display: inline-block;"><i class="ri-lock-line"></i> 임직원 포털</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">연락처</h3>
+                <p class="footer__info">주소: 강원 춘천시 퇴계공단2길 64</p>
+                <p class="footer__info">Tel: 033-264-9243</p>
+                <p class="footer__info">Fax: 033-251-5747</p>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2024 (주) 비에이텍. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!-- Chatbot -->
+    <div id="chatbot-toggle" class="chatbot__toggle">
+        <i class="ri-chat-smile-3-line"></i>
+    </div>
+
+    <div id="chatbot-container" class="chatbot__container">
+        <div class="chat-header">
+            <span>비에이텍 실시간 상담</span>
+            <button id="chat-close" class="chat-close">?</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">안녕하세요! (주) 비에이텍입니다. 무엇을 도와드릴까요?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="메시지를 입력하세요...">
+            <button id="send-btn" class="send-btn">전송</button>
+        </div>
+    </div>
+
+    <!-- Ad Video Modal -->
+    <div id="ad-modal" class="ad-modal">
+        <div class="ad-modal__content">
+            <span class="ad-modal__close" id="ad-close-btn" onclick="closeAdModal()">&times;</span>
+            <video id="ad-video" class="ad-modal__video" autoplay muted loop controls>
+                <source src="assets/ad_video.mp4" type="video/mp4">
+                브라우저가 비디오 태그를 지원하지 않습니다.
+            </video>
+            <h3 class="ad-modal__title">비에이텍 홍보 영상</h3>
+            <p class="ad-modal__desc">깨끗한 물을 만드는 비에이텍의 혁신 기술을 확인하세요.</p>
+            <div class="ad-modal__footer">
+                <label>
+                    <input type="checkbox" id="ad-dont-show-today"> 오늘 하루 보지 않기
+                </label>
+                <button class="button button--small" onclick="closeAdModal()">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox for Images -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox__close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- PDF Modal for Manuals/Certs -->
+    <div id="pdf-modal" class="pdf-modal">
+        <span class="pdf-modal__close" onclick="closePDF()">&times;</span>
+        <div class="pdf-modal__content">
+            <iframe id="pdf-iframe" class="pdf-modal__iframe"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

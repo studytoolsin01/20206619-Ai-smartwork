@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객문의 | (주) 비에이텍</title>
+    <link rel="icon" type="image/png" href="certs/kc_cert.png">
+    
+    <meta name="description" content="비에이텍의 펌프 견적 문의, A/S 접수 및 기술 상담을 온라인으로 간편하게 신청하세요.">
+    <meta property="og:title" content="고객문의 | (주) 비에이텍">
+    <meta property="og:description" content="최고의 기술력으로 신속하게 답변해 드립니다. 지금 비에이텍에 문의하세요.">
+    <meta property="og:image" content="assets/factory_ext.png">
+    
+    <!-- Fonts: Pretendard -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">(주) 비에이텍</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">홈</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">회사소개</a></li>
+                    <li class="nav__item"><a href="equipment.html" class="nav__link">장비소개</a></li>
+                    <li class="nav__item"><a href="location.html" class="nav__link">오시는 길</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link active-link">고객문의</a></li>
+                    <li class="nav__item"><a href="employee.html" class="nav__link"><i class="ri-lock-line" style="font-size: 0.85rem; margin-right: 0.15rem; vertical-align: middle;"></i>임직원 포털</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Theme & BGM change buttons -->
+                <div class="nav__controls">
+                    <i class="ri-music-2-line bgm-button" id="bgm-button" title="BGM On/Off"></i>
+                    <i class="ri-moon-line change-theme" id="theme-button" title="다크모드 전환"></i>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Background Music -->
+    <audio id="site-bgm" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+        브라우저가 오디오 태그를 지원하지 않습니다.
+    </audio>
+
+    <main class="main">
+        <section class="subpage-header">
+            <div class="container">
+                <h1 class="subpage-header__title">문의하기</h1>
+                <p class="subpage-header__subtitle">궁금하신 사항을 남겨주시면 정성껏 답변해 드리겠습니다.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section">
+            <div class="container">
+                <h2 class="section__title">온라인 문의</h2>
+                <span class="section__subtitle">Get in Touch</span>
+
+                <div class="contact__container grid">
+                    <div class="contact__info">
+                        <div class="contact__card">
+                            <h3 class="contact__card-title"><i class="ri-customer-service-2-line"></i> 고객센터</h3>
+                            <p class="contact__card-data">033-264-9243</p>
+                            <a href="tel:0332649243" class="contact__button">전화하기 <i class="ri-arrow-right-line"></i></a>
+                        </div>
+                        <div class="contact__card">
+                            <h3 class="contact__card-title"><i class="ri-mail-send-line"></i> 이메일 / 팩스</h3>
+                            <p class="contact__card-data">contact@batech.co.kr</p>
+                            <p class="contact__card-data">Fax: 033-251-5747</p>
+                        </div>
+                        <div class="contact__card">
+                            <h3 class="contact__card-title"><i class="ri-time-line"></i> 상담 가능 시간</h3>
+                            <p class="contact__card-data">평일 09:00 - 18:00<br>(토, 일, 공휴일 휴무)</p>
+                        </div>
+                        <div class="contact__card">
+                            <h3 class="contact__card-title"><i class="ri-map-pin-line"></i> 본사 위치</h3>
+                            <p class="contact__card-data">강원 춘천시 퇴계공단2길 64</p>
+                            <a href="location.html" class="contact__button">지도 보기 <i class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </div>
+
+                    <form action="" class="contact__form" id="contact-form">
+                        <div class="contact__inputs grid">
+                            <div class="contact__content">
+                                <label for="inquiry_type" class="contact__label">문의 유형</label>
+                                <select id="inquiry_type" class="contact__input" required>
+                                    <option value="" disabled selected>유형을 선택해주세요</option>
+                                    <option value="견적문의">견적 문의</option>
+                                    <option value="AS접수">A/S 접수 및 기술 상담</option>
+                                    <option value="카탈로그요청">제품 카탈로그 요청</option>
+                                    <option value="기타">기타 문의</option>
+                                </select>
+                            </div>
+                            <div class="contact__content">
+                                <label for="user_name" class="contact__label">성함 / 업체명</label>
+                                <input type="text" id="user_name" class="contact__input" required placeholder="예: 비에이텍 / 홍길동">
+                            </div>
+                            <div class="contact__content">
+                                <label for="user_phone" class="contact__label">연락처</label>
+                                <input type="tel" id="user_phone" class="contact__input" required placeholder="예: 010-1234-5678">
+                            </div>
+                            <div class="contact__content">
+                                <label for="user_email" class="contact__label">이메일</label>
+                                <input type="email" id="user_email" class="contact__input" required placeholder="example@batech.co.kr">
+                            </div>
+                        </div>
+                        <div class="contact__content">
+                            <label for="user_message" class="contact__label">문의 내용</label>
+                            <textarea id="user_message" cols="0" rows="7" class="contact__input" required placeholder="상세한 문의 내용을 입력해 주시면 더욱 정확한 답변이 가능합니다."></textarea>
+                        </div>
+
+                        <!-- Privacy Agreement -->
+                        <div class="contact__privacy">
+                            <label class="contact__privacy-label">
+                                <input type="checkbox" id="privacy_agree" required>
+                                <span>개인정보 수집 및 이용에 동의합니다. <a href="#" class="privacy-link">[내용보기]</a></span>
+                            </label>
+                        </div>
+
+                        <div id="contact-status" class="contact__status"></div>
+
+                        <div>
+                            <button type="submit" class="button button--flex" id="contact-submit">
+                                문의하기 <i class="ri-send-plane-line"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">(주) 비에이텍</h3>
+                <p class="footer__description">깨끗한 물을 만드는 기술로 내일을 설계합니다.</p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">메뉴</h3>
+                <ul>
+                    <li><a href="index.html" class="footer__link">홈</a></li>
+                    <li><a href="about.html" class="footer__link">회사소개</a></li>
+                    <li><a href="equipment.html" class="footer__link">장비소개</a></li>
+                    <li><a href="contact.html" class="footer__link">문의하기</a></li>
+                    <li><a href="employee.html" class="footer__link" style="opacity: 0.4; font-size: 0.8rem; margin-top: 0.5rem; display: inline-block;"><i class="ri-lock-line"></i> 임직원 포털</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">연락처</h3>
+                <p class="footer__info">주소: 강원 춘천시 퇴계공단2길 64</p>
+                <p class="footer__info">Tel: 033-264-9243</p>
+                <p class="footer__info">Fax: 033-251-5747</p>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2024 (주) 비에이텍. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!-- Chatbot -->
+    <div id="chatbot-toggle" class="chatbot__toggle">
+        <i class="ri-chat-smile-3-line"></i>
+    </div>
+
+    <div id="chatbot-container" class="chatbot__container">
+        <div class="chat-header">
+            <span>비에이텍 실시간 상담</span>
+            <button id="chat-close" class="chat-close">?</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">안녕하세요! (주) 비에이텍입니다. 무엇을 도와드릴까요?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="메시지를 입력하세요...">
+            <button id="send-btn" class="send-btn">전송</button>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox__close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="pdf-modal">
+        <span class="pdf-modal__close" onclick="closePDF()">&times;</span>
+        <div class="pdf-modal__content">
+            <iframe id="pdf-iframe" class="pdf-modal__iframe"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

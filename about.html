@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회사소개 (주) 비에이텍</title>
+    <link rel="icon" type="image/png" href="certs/kc_cert.png">
+
+    <meta name="description" content="(주) 비에이텍의 기업 비전, 연혁, 인증 현황 및 조직도를 소개합니다.">
+    <meta property="og:title" content="회사소개 | (주) 비에이텍">
+    <meta property="og:description" content="2010년부터 이어온 펌프 기술의 명가, 비에이텍의 발자취를 확인하세요.">
+    <meta property="og:image" content="assets/ceo_profile.png">
+
+    <!-- Fonts: Pretendard -->
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">(주) 비에이텍</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">홈</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link active-link">회사소개</a></li>
+                    <li class="nav__item"><a href="equipment.html" class="nav__link">장비소개</a></li>
+                    <li class="nav__item"><a href="location.html" class="nav__link">오시는 길</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">고객문의</a></li>
+                    <li class="nav__item"><a href="employee.html" class="nav__link"><i class="ri-lock-line" style="font-size: 0.85rem; margin-right: 0.15rem; vertical-align: middle;"></i>임직원 포털</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Theme & BGM change buttons -->
+                <div class="nav__controls">
+                    <i class="ri-music-2-line bgm-button" id="bgm-button" title="BGM On/Off"></i>
+                    <i class="ri-moon-line change-theme" id="theme-button" title="다크모드 전환"></i>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Background Music -->
+    <audio id="site-bgm" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+        브라우저가 오디오 태그를 지원하지 않습니다.
+    </audio>
+
+    <main class="main">
+        <section class="subpage-header">
+            <div class="container">
+                <h1 class="subpage-header__title">회사 소개</h1>
+                <p class="subpage-header__subtitle">비에이텍의 가치와 발자취를 소개합니다.</p>
+            </div>
+        </section>
+
+        <!-- Company Profile Table -->
+        <section class="profile section">
+            <div class="container">
+                <h2 class="section__title">기업 개요</h2>
+                <span class="section__subtitle">Company Profile</span>
+
+                <div class="profile__container">
+                    <table class="profile__table">
+                        <tr>
+                            <th>회사명</th>
+                            <td>(주) 비에이텍 (BA-TECH Co., Ltd.)</td>
+                            <th>대표이사</th>
+                            <td>조세연</td>
+                        </tr>
+                        <tr>
+                            <th>설립일</th>
+                            <td>2010년 09월 14일</td>
+                            <th>주요 생산품</th>
+                            <td>다단·편흡입 볼루트펌프, 원심펌프 등</td>
+                        </tr>
+                        <tr>
+                            <th>본사/공장</th>
+                            <td colspan="3">강원 춘천시 퇴계공단2길 64</td>
+                        </tr>
+                        <tr>
+                            <th>인증현황</th>
+                            <td colspan="3">ISO 9001, KC 인증, MAIN-BIZ 인증 외</td>
+                        </tr>
+                    </table>
+
+                    <!-- Corporate Analysis Report CTA Banner -->
+                    <div class="profile__report-cta" style="margin-top: 2.5rem; display: flex; flex-direction: column; align-items: center; padding: 2.5rem 2rem; background: var(--container-color); border-radius: 1rem; box-shadow: 0 10px 30px rgba(10, 61, 98, 0.08); text-align: center; gap: 0.75rem; border: 1px solid rgba(10, 61, 98, 0.06);">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--title-color); display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+                            <i class="ri-line-chart-line" style="color: var(--first-color-light); font-size: 1.5rem;"></i> 
+                            (주)비에이텍 기업 전략 분석
+                        </h3>
+                        <p style="color: var(--text-color); font-size: 0.9rem; max-width: 520px; line-height: 1.6; margin-bottom: 0.5rem;">
+                            비에이텍의 상세 경영 데이터, 시장 지배력(SWOT), 향후 기술 로드맵 및 미래 비전 보고서를 투명하게 공유합니다.
+                        </p>
+                        <a href="batech_report.html" class="button button--small" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            분석 보고서 전체보기 <i class="ri-arrow-right-up-line" style="font-size: 1.1rem;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CEO Message -->
+        <section class="ceo section">
+            <div class="container grid">
+                <div class="ceo__content">
+                    <h2 class="section__title ceo__title">CEO 인사말</h2>
+                    <h3 class="ceo__slogan">"기술에 신뢰를 더해<br>깨끗한 미래를 설계합니다."</h3>
+                    <p class="ceo__text">
+                        안녕하십니까. (주) 비에이텍 대표이사 조세연입니다.<br><br>
+                        비에이텍은 지난 15년 넘는 시간 동안 오직 '깨끗한 물을 안정적으로 공급하는 기술'에 매진해 왔습니다.
+                        급변하는 환경 속에서도 변치 않는 최고의 품질과 신속한 서비스를 바탕으로 고객 여러분의 신뢰를 쌓아왔습니다.<br><br>
+                        우리는 단순한 펌프 제조 기업을 넘어, 첨단 엔지니어링 역량을 바탕으로 수자원의 효율적 관리와 친환경적인 시스템 솔루션을 제공하는 글로벌 강소기업으로 도약하고
+                        있습니다.<br><br>
+                        앞으로도 비에이텍은 정직한 기술과 혁신적인 마인드로 우리 사회의 수자원 인프라 발전에 기여할 것을 약속드립니다. 감사합니다.
+                    </p>
+                    <div class="ceo__signature">
+                        <p>대표이사 <span>조세연</span></p>
+                    </div>
+                </div>
+                <div class="ceo__img-box">
+                    <img src="assets/ceo_profile.png" alt="비에이텍 대표이사 조세연" class="ceo__img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Introduction -->
+        <section class="about section">
+            <div class="container">
+                <h2 class="section__title">미션 & 비전</h2>
+                <span class="section__subtitle">BA-TECH Mission & Vision</span>
+
+                <div class="about__container grid">
+                    <div class="about__content">
+                        <p class="about__text">
+                            우리는 단순히 물을 옮기는 기술을 넘어, 더 나은 수자원 환경과 지속 가능한 미래를 설계합니다.
+                            환경 친화적인 기술 혁신을 통해 인류의 삶의 질을 높이는 것이 비에이텍의 목표입니다.
+                        </p>
+                    </div>
+
+                    <div class="about__strengths grid">
+                        <div class="strength__card">
+                            <div class="strength__img-box">
+                                <img src="assets/vision_water.png" alt="깨끗한 물" class="strength__img">
+                            </div>
+                            <h3 class="strength__title">깨끗한 물</h3>
+                            <p class="strength__desc">수질 오염 방지 및 효율적 관리 기술</p>
+                        </div>
+                        <div class="strength__card">
+                            <div class="strength__img-box">
+                                <img src="assets/vision_eco.png" alt="친환경" class="strength__img">
+                            </div>
+                            <h3 class="strength__title">친환경</h3>
+                            <p class="strength__desc">에너지 효율 최적화 시스템 구축</p>
+                        </div>
+                        <div class="strength__card">
+                            <div class="strength__img-box">
+                                <img src="assets/vision_tech.png" alt="기술력" class="strength__img">
+                            </div>
+                            <h3 class="strength__title">기술력</h3>
+                            <p class="strength__desc">20년 이상의 펌프 설비 전문 노하우</p>
+                        </div>
+                        <div class="strength__card">
+                            <div class="strength__img-box">
+                                <img src="assets/vision_trust.png" alt="신뢰성" class="strength__img">
+                            </div>
+                            <h3 class="strength__title">신뢰성</h3>
+                            <p class="strength__desc">철저한 사후 관리 및 유지보수 서비스</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Timeline -->
+        <section class="history section">
+            <div class="container">
+                <h2 class="section__title">주요 업력</h2>
+                <span class="section__subtitle">History of Excellence</span>
+
+                <div class="timeline">
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <span class="timeline__year">2024</span>
+                            <p class="timeline__text">친환경 고효율 스마트 펌프 시스템 특허 출원</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <span class="timeline__year">2022</span>
+                            <p class="timeline__text">전국 주요 상수도 시설 설치 공사 수주 및 완공</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <span class="timeline__year">2018</span>
+                            <p class="timeline__text">산업통상자원부 기술 우수 기업 선정</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <span class="timeline__year">2010</span>
+                            <p class="timeline__text">(주) 비에이텍 법인 설립 및 기술 연구소 개소</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Status -->
+        <section class="certs section" id="certs">
+            <div class="container">
+                <h2 class="section__title">인증 현황</h2>
+                <span class="section__subtitle">Certified Quality & Technology</span>
+
+                <div class="certs__container grid">
+                    <!-- ISO9001 -->
+                    <article class="cert__card">
+                        <img src="certs/iso9001.png" alt="ISO9001 인증서" class="cert__img-placeholder"
+                            style="border: none; background: none;">
+                        <h3 class="cert__name">ISO9001 인증</h3>
+                        <div class="button-group">
+                            <button onclick="openPDF('certs/iso9001.pdf')"
+                                class="button button--small button--mini button--secondary">보기 <i
+                                    class="ri-eye-line"></i></button>
+                            <a href="certs/iso9001.pdf" class="button button--small button--mini" download>다운로드 <i
+                                    class="ri-download-2-line"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- KC -->
+                    <article class="cert__card">
+                        <img src="certs/kc_cert.png" alt="KC 인증서" class="cert__img-placeholder"
+                            style="border: none; background: none;">
+                        <h3 class="cert__name">KC 인증</h3>
+                        <div class="button-group">
+                            <button onclick="openPDF('certs/kc_cert.pdf')"
+                                class="button button--small button--mini button--secondary">보기 <i
+                                    class="ri-eye-line"></i></button>
+                            <a href="certs/kc_cert.pdf" class="button button--small button--mini" download>다운로드 <i
+                                    class="ri-download-2-line"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- MAIN-BIZ -->
+                    <article class="cert__card">
+                        <img src="certs/mainbiz.png" alt="메인비즈 확인서" class="cert__img-placeholder"
+                            style="border: none; background: none;">
+                        <h3 class="cert__name">메인비즈(MAIN-BIZ)</h3>
+                        <div class="button-group">
+                            <button onclick="openPDF('certs/mainbiz.pdf')"
+                                class="button button--small button--mini button--secondary">보기 <i
+                                    class="ri-eye-line"></i></button>
+                            <a href="certs/mainbiz.pdf" class="button button--small button--mini" download>다운로드 <i
+                                    class="ri-download-2-line"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Factory/Facility Introduction -->
+        <section class="factory section">
+            <div class="container">
+                <h2 class="section__title">공장/시설 소개</h2>
+                <span class="section__subtitle">Advanced Manufacturing Facility</span>
+
+                <div class="factory__gallery grid">
+                    <div class="gallery__item">
+                        <img src="assets/factory_ext.png" alt="공장 외부 전경" onclick="openLightbox(this.src)">
+                        <div class="gallery__info">
+                            <span class="gallery__title">본사 및 제1공장</span>
+                            <p class="gallery__desc">강원도 춘천시 퇴계농공단지 위치</p>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/factory_int.png" alt="공장 내부 전경" onclick="openLightbox(this.src)">
+                        <div class="gallery__info">
+                            <span class="gallery__title">청결한 제조 환경</span>
+                            <p class="gallery__desc">최신 설비를 갖춘 현대적 생산 라인</p>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/pump_workshop.png" alt="펌프제작소" onclick="openLightbox(this.src)">
+                        <div class="gallery__info">
+                            <span class="gallery__title">펌프 조립 워크숍</span>
+                            <p class="gallery__desc">전문 엔지니어들의 정밀 조립 공정</p>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/test_lab.png" alt="성능시험장" onclick="openLightbox(this.src)">
+                        <div class="gallery__info">
+                            <span class="gallery__title">공인 성능시험소</span>
+                            <p class="gallery__desc">전 제품 전수 성능 테스트 실시</p>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/storage.png" alt="자재관리소" onclick="openLightbox(this.src)">
+                        <div class="gallery__info">
+                            <span class="gallery__title">물류 및 자재 센터</span>
+                            <p class="gallery__desc">체계적인 원자재 및 부품 관리</p>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/shipping.png" alt="펌프 출고대기소" onclick="openLightbox(this.src)">
+                        <div class="gallery__info">
+                            <span class="gallery__title">안전 포장 및 출고</span>
+                            <p class="gallery__desc">전국 현장으로의 신속한 인도 시스템</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organization Chart -->
+        <section class="org section">
+            <div class="container">
+                <h2 class="section__title">조직도 및 업무분장</h2>
+                <span class="section__subtitle">Company Structure</span>
+
+                <div class="org__chart">
+                    <!-- CEO -->
+                    <div class="org__node org__node--ceo">
+                        <span class="org__role">대표이사</span>
+                        <span class="org__node-title">조세연</span>
+                    </div>
+
+                    <div class="org__branches">
+                        <!-- Production -->
+                        <div class="org__dept">
+                            <div class="org__dept-title">생산부</div>
+                            <div class="org__members">
+                                <div class="org__member"><span class="org__role">부장</span> 정충구</div>
+                                <div class="org__member"><span class="org__role">부장</span> 조태연</div>
+                                <div class="org__member"><span class="org__role">과장</span> 김진수</div>
+                                <div class="org__member" style="color: var(--text-color-light); font-size: 0.7rem;">
+                                    제품생산, 원자재구입</div>
+                            </div>
+                        </div>
+
+                        <!-- Management -->
+                        <div class="org__dept">
+                            <div class="org__dept-title">관리부</div>
+                            <div class="org__members">
+                                <div class="org__member"><span class="org__role">이사</span> 이원석</div>
+                                <div class="org__member"><span class="org__role">실장</span> 김홍인</div>
+                                <div class="org__member" style="color: var(--text-color-light); font-size: 0.7rem;">계약 및
+                                    공정관리</div>
+                            </div>
+                        </div>
+
+                        <!-- Quality Assurance -->
+                        <div class="org__dept">
+                            <div class="org__dept-title">품질보증부</div>
+                            <div class="org__members">
+                                <div class="org__member"><span class="org__role">사원</span> 정영호</div>
+                                <div class="org__member" style="color: var(--text-color-light); font-size: 0.7rem;">품질관리
+                                    및 A/S</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Track Record / Partners -->
+        <section class="track section">
+            <div class="container">
+                <h2 class="section__title">주요 실적 및 파트너</h2>
+                <span class="section__subtitle">Proven Track Record</span>
+
+                <div class="track__container">
+                    <p class="track__intro">비에이텍은 전국 지자체 상하수도 사업소 및 산업 현장에 최고의 펌프 솔루션을 공급하고 있습니다.</p>
+
+                    <div class="track__grid grid">
+                        <div class="track__card">
+                            <i class="ri-government-line track__icon"></i>
+                            <h3 class="track__name">공공기관</h3>
+                            <p class="track__desc">춘천시, 성남시, 원주시 등 전국 지자체 정수장 및 하수처리장</p>
+                        </div>
+                        <div class="track__card">
+                            <i class="ri-building-4-line track__icon"></i>
+                            <h3 class="track__name">건설 및 플랜트</h3>
+                            <p class="track__desc">국내 주요 건설사 및 환경 설비 플랜트 전문 기업</p>
+                        </div>
+                        <div class="track__card">
+                            <i class="ri-leaf-line track__icon"></i>
+                            <h3 class="track__name">수자원 인프라</h3>
+                            <p class="track__desc">한국수자원공사 및 지역별 농어촌공사 관련 프로젝트</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">(주) 비에이텍</h3>
+                <p class="footer__description">깨끗한 물을 만드는 기술로 내일을 설계합니다.</p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">메뉴</h3>
+                <ul>
+                    <li><a href="index.html" class="footer__link">홈</a></li>
+                    <li><a href="about.html" class="footer__link">회사소개</a></li>
+                    <li><a href="equipment.html" class="footer__link">장비소개</a></li>
+                    <li><a href="contact.html" class="footer__link">문의하기</a></li>
+                    <li><a href="employee.html" class="footer__link" style="opacity: 0.4; font-size: 0.8rem; margin-top: 0.5rem; display: inline-block;"><i class="ri-lock-line"></i> 임직원 포털</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">연락처</h3>
+                <p class="footer__info">주소: 강원 춘천시 퇴계공단2길 64</p>
+                <p class="footer__info">Tel: 033-264-9243</p>
+                <p class="footer__info">Fax: 033-251-5747</p>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2024 (주) 비에이텍. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!-- Chatbot -->
+    <div id="chatbot-toggle" class="chatbot__toggle">
+        <i class="ri-chat-smile-3-line"></i>
+    </div>
+
+    <div id="chatbot-container" class="chatbot__container">
+        <div class="chat-header">
+            <span>비에이텍 실시간 상담</span>
+            <button id="chat-close" class="chat-close">?</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">안녕하세요! (주) 비에이텍입니다. 무엇을 도와드릴까요?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="메시지를 입력하세요...">
+            <button id="send-btn" class="send-btn">전송</button>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox__close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="pdf-modal">
+        <span class="pdf-modal__close" onclick="closePDF()">&times;</span>
+        <div class="pdf-modal__content">
+            <iframe id="pdf-iframe" class="pdf-modal__iframe"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+

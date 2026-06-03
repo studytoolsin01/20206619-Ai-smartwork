@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비에이텍(주) 기업 분석 보고서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0c1b33;
+    --navy-mid: #1a2e50;
+    --navy-light: #253d66;
+    --blue: #2162b8;
+    --blue-bright: #3a7ddd;
+    --teal: #1a8c6e;
+    --teal-light: #e8f7f3;
+    --amber: #c47d10;
+    --amber-light: #fdf3e0;
+    --red-soft: #b84040;
+    --red-light: #fdeaea;
+    --cream: #f8f5ef;
+    --white: #ffffff;
+    --text-dark: #0c1b33;
+    --text-mid: #3d4f6a;
+    --text-muted: #6e7f99;
+    --border: #dde3ed;
+    --section-gap: 80px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 40px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #7aaddd;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: #7aaddd;
+  }
+
+  .header-title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .header-title span { color: #7aaddd; }
+
+  .header-sub {
+    font-size: 15px;
+    color: #a8bdd4;
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .meta-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6a8aaa;
+    font-weight: 500;
+  }
+  .meta-value {
+    font-size: 14px;
+    color: #d0dff0;
+    font-weight: 400;
+  }
+
+  /* decorative grid */
+  .header-grid {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 400px;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy-mid);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  nav a {
+    display: block;
+    padding: 14px 18px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #a8bdd4;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  nav a:hover { color: white; border-bottom-color: #7aaddd; }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  section {
+    padding: var(--section-gap) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: var(--blue);
+  }
+
+  .section-title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* ── COMPANY OVERVIEW ── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 700px) { .overview-grid { grid-template-columns: 1fr; } }
+
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+  .info-card h3 {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid #f0f2f6;
+    gap: 12px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .key {
+    font-size: 13px;
+    color: var(--text-muted);
+    min-width: 110px;
+    flex-shrink: 0;
+  }
+  .info-row .val {
+    font-size: 13px;
+    color: var(--text-dark);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  /* stats strip */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .stat-cell {
+    background: var(--white);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--navy);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* timeline */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--teal));
+    border-radius: 1px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--blue);
+  }
+  .tl-year {
+    font-size: 11px;
+    color: var(--blue);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 2px;
+  }
+  .tl-text {
+    font-size: 14px;
+    color: var(--text-dark);
+  }
+
+  /* ── PRODUCTS ── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .product-chip {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .product-chip:hover {
+    border-color: var(--blue-bright);
+    box-shadow: 0 2px 12px rgba(33,98,184,0.08);
+  }
+  .chip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blue-bright);
+    flex-shrink: 0;
+  }
+  .chip-text {
+    font-size: 13px;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+  .chip-badge {
+    margin-left: auto;
+    font-size: 10px;
+    background: #eef4fb;
+    color: var(--blue);
+    padding: 2px 7px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ── COMPETITION ── */
+  .comp-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .comp-table th {
+    background: var(--navy);
+    color: white;
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .comp-table th:first-child { border-radius: 11px 0 0 0; }
+  .comp-table th:last-child { border-radius: 0 11px 0 0; }
+  .comp-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .comp-table tr:last-child td { border-bottom: none; }
+  .comp-table tr.highlight-row td { background: #f0f6ff; }
+  .comp-table tr:hover td { background: #f8fafd; }
+  .comp-table tr.highlight-row:hover td { background: #e8f0fa; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .badge-blue { background: #e6f0fb; color: #1a4d8a; }
+  .badge-green { background: #e5f5ef; color: #0f5c3d; }
+  .badge-amber { background: #fdf0d9; color: #7a4d09; }
+  .badge-red   { background: #fde8e8; color: #7a2020; }
+  .badge-gray  { background: #f0f1f3; color: #4a5568; }
+
+  /* ── SWOT ── */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .swot-grid { grid-template-columns: 1fr; } }
+
+  .swot-card {
+    border-radius: 12px;
+    padding: 24px 28px;
+    border: 1px solid transparent;
+  }
+  .swot-card.strength {
+    background: var(--teal-light);
+    border-color: #b8e4d7;
+  }
+  .swot-card.weakness {
+    background: var(--red-light);
+    border-color: #f2c4c4;
+  }
+  .swot-card.opportunity {
+    background: #eef4fb;
+    border-color: #c0d7f2;
+  }
+  .swot-card.threat {
+    background: var(--amber-light);
+    border-color: #f2d9a8;
+  }
+
+  .swot-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .swot-card.strength .swot-title { color: var(--teal); }
+  .swot-card.weakness .swot-title { color: var(--red-soft); }
+  .swot-card.opportunity .swot-title { color: var(--blue); }
+  .swot-card.threat .swot-title { color: var(--amber); }
+
+  .swot-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .swot-card.strength .swot-icon { background: var(--teal); color: white; }
+  .swot-card.weakness .swot-icon { background: var(--red-soft); color: white; }
+  .swot-card.opportunity .swot-icon { background: var(--blue); color: white; }
+  .swot-card.threat .swot-icon { background: var(--amber); color: white; }
+
+  .swot-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .swot-list li {
+    font-size: 13px;
+    color: var(--text-dark);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .swot-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    font-size: 11px;
+    opacity: 0.4;
+    top: 1px;
+  }
+
+  /* ── MARKET ── */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .market-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .market-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 12px 0 0 12px;
+  }
+  .market-card.blue::before { background: var(--blue-bright); }
+  .market-card.teal::before { background: var(--teal); }
+  .market-card.amber::before { background: var(--amber); }
+  .market-card.navy::before { background: var(--navy); }
+
+  .market-figure {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .market-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+  .market-note {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  /* ── STRATEGY ── */
+  .strategy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .strat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 28px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: start;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .strat-card:hover {
+    border-color: var(--blue-bright);
+    transform: translateX(4px);
+  }
+  .strat-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: var(--navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 20px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .strat-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  .strat-body {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+  .strat-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .strat-tag {
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: #f0f4fb;
+    color: var(--blue);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── CERTS ── */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .cert-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .cert-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .cert-icon svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .cert-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .cert-detail {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: #7a9abc;
+    padding: 36px 40px;
+    margin-top: 0;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+  }
+  .footer-note {
+    font-size: 11px;
+    color: #5a7a9a;
+    line-height: 1.5;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 700px) {
+    main { padding: 0 20px; }
+    .header-inner { padding: 50px 20px 40px; }
+    .nav-inner { padding: 0 20px; }
+    footer { padding: 28px 20px; }
+    :root { --section-gap: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-grid"></div>
+  <div class="header-inner">
+    <div class="header-label">기업 분석 보고서</div>
+    <h1 class="header-title">비에이텍<span>(주)</span><br>전략 분석</h1>
+    <p class="header-sub">Blue Advanced Technology Co., Ltd. — 강원도 춘천 소재 모터펌프 전문 제조기업의 경영 현황, 시장 경쟁 구도, 미래 성장 전략에 대한 종합 분석</p>
+    <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-label">작성일</span>
+        <span class="meta-value">2025년 6월</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">대표이사</span>
+        <span class="meta-value">조세연</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">소재지</span>
+        <span class="meta-value">강원특별자치도 춘천시</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">주요제품</span>
+        <span class="meta-value">모터펌프 (11종 직접생산)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#overview">회사 개요</a>
+    <a href="#products">제조 물품</a>
+    <a href="#competition">경쟁 구도</a>
+    <a href="#market">시장 현황</a>
+    <a href="#swot">SWOT 분석</a>
+    <a href="#strategy">미래 전략</a>
+    <a href="#certs">인증 현황</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. OVERVIEW -->
+  <section id="overview">
+    <div class="section-label">Company Overview</div>
+    <h2 class="section-title">회사 개요</h2>
+    <p class="section-desc">비에이텍(주)은 2010년 설립된 강원 춘천 소재의 모터펌프 전문 제조·도매 기업으로, 강원도 공공기관 상하수도 인프라 시장을 핵심 기반으로 성장해 왔습니다.</p>
+
+    <div class="stats-strip reveal">
+      <div class="stat-cell">
+        <span class="stat-num">2010</span>
+        <span class="stat-label">설립연도</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">15년</span>
+        <span class="stat-label">업력</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">7명</span>
+        <span class="stat-label">임직원 수</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">11종</span>
+        <span class="stat-label">직접생산 품목</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">1,970㎡</span>
+        <span class="stat-label">공장 부지 면적</span>
+      </div>
+    </div>
+
+    <div class="overview-grid reveal">
+      <div class="info-card">
+        <h3>기본 정보</h3>
+        <div class="info-row"><span class="key">법인명</span><span class="val">비에이텍(주)</span></div>
+        <div class="info-row"><span class="key">영문명</span><span class="val">Blue Advanced Technology Co., Ltd.</span></div>
+        <div class="info-row"><span class="key">사업자등록번호</span><span class="val">221-81-42625</span></div>
+        <div class="info-row"><span class="key">법인등록번호</span><span class="val">140111-0051140</span></div>
+        <div class="info-row"><span class="key">설립일</span><span class="val">2010년 11월 1일</span></div>
+        <div class="info-row"><span class="key">개업일(사업자)</span><span class="val">2013년 2월 15일</span></div>
+        <div class="info-row"><span class="key">대표이사</span><span class="val">조세연</span></div>
+        <div class="info-row"><span class="key">업종</span><span class="val">제조업 / 도매업</span></div>
+      </div>
+      <div class="info-card">
+        <h3>소재지 및 연락처</h3>
+        <div class="info-row"><span class="key">본사·공장</span><span class="val">강원특별자치도 춘천시 퇴계공단2길 64</span></div>
+        <div class="info-row"><span class="key">산업단지</span><span class="val">퇴계제2농공단지 (분양)</span></div>
+        <div class="info-row"><span class="key">전화</span><span class="val">033-264-9243</span></div>
+        <div class="info-row"><span class="key">팩스</span><span class="val">033-251-5747</span></div>
+        <div class="info-row"><span class="key">공장등록일</span><span class="val">2023년 6월 8일</span></div>
+        <div class="info-row"><span class="key">제조시설 면적</span><span class="val">494 m²</span></div>
+        <div class="info-row"><span class="key">부대시설 면적</span><span class="val">280 m²</span></div>
+        <div class="info-row"><span class="key">주요생산제품</span><span class="val">모터펌프 (펌프류 전반)</span></div>
+      </div>
+    </div>
+
+    <div class="info-card reveal" style="margin-top:0;">
+      <h3>회사 연혁</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">2010.11</div>
+          <div class="tl-text">㈜강원유체로 설립 — 모터펌프 제조·도매 사업 개시</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2012.12</div>
+          <div class="tl-text">벤처기업 인증 취득 (중소기업청)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2013.02</div>
+          <div class="tl-text">상호 및 대표자 변경 — ㈜강원유체 → 비에이텍㈜</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2015.01</div>
+          <div class="tl-text">한국펌프공업협동조합 조합원 가입 (제151호)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2017.12</div>
+          <div class="tl-text">강원도지사 표창 — 상수도 관리 활동 공로 인정</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2023.06</div>
+          <div class="tl-text">공장등록증 취득 (퇴계제2농공단지)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2024.08</div>
+          <div class="tl-text">ISO 9001:2015 품질경영시스템 인증 취득 (유효기간 2027.08)</div>
+        </div>
+        <div class="tl-item" style="margin-bottom:0;">
+          <div class="tl-year">2024.09</div>
+          <div class="tl-text">경영혁신형 중소기업(Main-Biz) 인증 취득 (유효 2027.09)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PRODUCTS -->
+  <section id="products">
+    <div class="section-label">Product Portfolio</div>
+    <h2 class="section-title">제조 물품</h2>
+    <p class="section-desc">중소기업자간 경쟁제품으로 지정된 11종의 펌프류를 직접 생산합니다. 배관유체조절시스템장비 및 부품 중 펌프류 카테고리에 해당하는 전 품목을 보유합니다.</p>
+    <div class="product-grid reveal">
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">다단벌류트펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">단단벌류트펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">양흡입벌류트펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">편흡입벌류트펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">정량펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">수중펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">오수펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">슬러지펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">심정용펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">전진공동펌프</span><span class="chip-badge">중기경쟁</span></div>
+      <div class="product-chip"><div class="chip-dot"></div><span class="chip-text">부스터펌프</span><span class="chip-badge">중기경쟁</span></div>
+    </div>
+    <div style="margin-top:20px; background:var(--white); border:1px solid var(--border); border-radius:10px; padding:18px 24px; display:flex; gap:12px; align-items:flex-start;" class="reveal">
+      <div style="width:4px; height:100%; min-height:40px; background:var(--blue); border-radius:2px; flex-shrink:0;"></div>
+      <div>
+        <div style="font-size:12px; font-weight:700; color:var(--blue); margin-bottom:4px;">납품처 및 주요 실적 (2019년 기준)</div>
+        <div style="font-size:13px; color:var(--text-mid); line-height:1.65;">춘천시·삼척시·양구군·양양군 상하수도사업소, 강원도인재개발원, 철원군·홍천군 농업기술센터 등 강원도 공공기관 전반에 납품. 주요 공사 유형은 상수도 확충공사·부스터펌프, 하수처리시설 수중펌프·슬러지펌프, 농업용수 진공펌프·심정펌프 등.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COMPETITION -->
+  <section id="competition">
+    <div class="section-label">Competitive Landscape</div>
+    <h2 class="section-title">경쟁 구도 분석</h2>
+    <p class="section-desc">비에이텍이 참여하는 시장은 중소기업자간 경쟁제품 제도로 대기업·외국계 진입이 제한된 공공조달 시장입니다. 실질 경쟁은 국내 중소 제조사 간에 이루어집니다.</p>
+    <div class="comp-table-wrap reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>경쟁사</th>
+            <th>특징</th>
+            <th>위협 수준</th>
+            <th>비에이텍 대응</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-row">
+            <td><span class="badge badge-blue">우리 회사</span></td>
+            <td style="font-weight:600;">비에이텍(주)</td>
+            <td>강원도 지역 밀착, 공공기관 직접 납품 경험 풍부, ISO·Main-Biz 인증</td>
+            <td>—</td>
+            <td>지역 특화 강점 유지</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-red">강력</span></td>
+            <td style="font-weight:600;">한일펌프 / 코리아모터펌프</td>
+            <td>1985년+ 설립, 전국 규모, 연구소 보유, 다중 인증, 전국 조달 참여</td>
+            <td><span class="badge badge-red">높음</span></td>
+            <td>지역·AS 차별화로 대응</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-amber">글로벌</span></td>
+            <td style="font-weight:600;">Grundfos / KSB / Wilo</td>
+            <td>유럽계 대형사, 고사양·대용량 특화. 중소기업 경쟁제품 해당 없음</td>
+            <td><span class="badge badge-gray">낮음</span></td>
+            <td>직접 경쟁 회피 (시장 보호)</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-gray">지역</span></td>
+            <td style="font-weight:600;">강원도 내 동종 중소기업</td>
+            <td>나라장터 동일 입찰 경합, 직접생산증명 보유, 가격 경쟁</td>
+            <td><span class="badge badge-amber">중간</span></td>
+            <td>품질·납기·관계 우위 확보</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:12px;" class="reveal">
+      <div class="info-card">
+        <h3>비에이텍의 경쟁 우위</h3>
+        <div class="info-row"><span class="key">지역 밀착성</span><span class="val">강원도 공공기관 네트워크</span></div>
+        <div class="info-row"><span class="key">빠른 AS</span><span class="val">춘천 거점, 즉시 출동 가능</span></div>
+        <div class="info-row"><span class="key">인증 완비</span><span class="val">직접생산·ISO·Main-Biz</span></div>
+        <div class="info-row"><span class="key">수상 이력</span><span class="val">강원도지사 표창 (상수도)</span></div>
+      </div>
+      <div class="info-card">
+        <h3>경쟁의 제도적 구조</h3>
+        <div class="info-row"><span class="key">시장 보호</span><span class="val">중기간 경쟁제품 (2025~27)</span></div>
+        <div class="info-row"><span class="key">참여 요건</span><span class="val">직접생산확인증명서 필수</span></div>
+        <div class="info-row"><span class="key">입찰 방식</span><span class="val">나라장터 공개경쟁입찰</span></div>
+        <div class="info-row"><span class="key">시장 규모</span><span class="val">연 28조 원 (중기 공공구매)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. MARKET -->
+  <section id="market">
+    <div class="section-label">Market Analysis</div>
+    <h2 class="section-title">시장 현황 및 전망</h2>
+    <p class="section-desc">글로벌 도시형 펌프 시장은 노후 인프라 교체 수요와 에너지 효율 규제를 바탕으로 지속 성장세를 보이며, 국내 공공 상하수도 시장 역시 안정적 발주가 이어지고 있습니다.</p>
+    <div class="market-grid reveal">
+      <div class="market-card blue">
+        <div class="market-figure">5.3%</div>
+        <div class="market-desc">글로벌 도시형 펌프 CAGR</div>
+        <div class="market-note">2025→2035 성장 전망. 상하수도·정수 시스템 수요 주도. 원심 펌프 부문이 시장 점유 41% 이상 차지.</div>
+      </div>
+      <div class="market-card teal">
+        <div class="market-figure">28조원</div>
+        <div class="market-desc">중소기업 공공구매 연간 시장</div>
+        <div class="market-note">전체 중소기업 제품 공공구매의 22%를 중기간 경쟁제품이 차지. 안정적 보호시장 구조.</div>
+      </div>
+      <div class="market-card amber">
+        <div class="market-figure">지속</div>
+        <div class="market-desc">노후 상하수도 교체 수요</div>
+        <div class="market-note">지방자치단체 예산의 지속적 투입. 강원특별자치도 승격으로 인프라 예산 확대 기대.</div>
+      </div>
+      <div class="market-card navy">
+        <div class="market-figure">신규</div>
+        <div class="market-desc">에너지 효율 규제 교체 수요</div>
+        <div class="market-note">인버터·고효율 펌프 교체 수요 증가. IoT 연동 스마트워터 인프라 정책과 맞물린 신규 발주.</div>
+      </div>
+    </div>
+    <div class="info-card reveal">
+      <h3>주요 고객 시장 — 강원도 공공기관</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:4px;">
+        <span class="badge badge-blue">춘천시 상하수도사업본부</span>
+        <span class="badge badge-blue">삼척시 상하수도사업소</span>
+        <span class="badge badge-blue">양구군 상하수도사업소</span>
+        <span class="badge badge-blue">양양군 상하수도사업소</span>
+        <span class="badge badge-blue">홍천군</span>
+        <span class="badge badge-blue">철원군 농업기술센터</span>
+        <span class="badge badge-blue">강원도인재개발원</span>
+        <span class="badge badge-green">강원특별자치도 내 각종 지자체</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SWOT -->
+  <section id="swot">
+    <div class="section-label">SWOT Analysis</div>
+    <h2 class="section-title">SWOT 분석</h2>
+    <p class="section-desc">비에이텍의 내부 역량과 외부 환경 요인을 체계적으로 정리합니다.</p>
+    <div class="swot-grid reveal">
+      <div class="swot-card strength">
+        <div class="swot-title"><div class="swot-icon">S</div>강점 (Strength)</div>
+        <ul class="swot-list">
+          <li>강원도 공공기관 밀착 납품 네트워크 (15년 이상)</li>
+          <li>11종 직접생산확인증명서 보유 (입찰 필수 요건)</li>
+          <li>ISO 9001:2015 · Main-Biz · 벤처기업 인증 완비</li>
+          <li>자가 공장 보유 (산업단지 내, 부지 1,970m²)</li>
+          <li>강원도지사 표창 — 상수도 관리 공로 공식 인정</li>
+          <li>한국펌프공업협동조합 정식 조합원 (신뢰도)</li>
+        </ul>
+      </div>
+      <div class="swot-card weakness">
+        <div class="swot-title"><div class="swot-icon">W</div>약점 (Weakness)</div>
+        <ul class="swot-list">
+          <li>소규모 인력(7명) — 동시 다발 공사 대응 한계</li>
+          <li>강원도 외 시장 진출 실적 미미</li>
+          <li>자체 기술 연구소·R&D 역량 부족</li>
+          <li>단일 지역 의존 → 지자체 예산 삭감 시 직격</li>
+          <li>브랜드 인지도 강원도 외 지역 낮음</li>
+          <li>인버터·IoT 연동 제품 라인 미보유</li>
+        </ul>
+      </div>
+      <div class="swot-card opportunity">
+        <div class="swot-title"><div class="swot-icon">O</div>기회 (Opportunity)</div>
+        <ul class="swot-list">
+          <li>강원특별자치도 승격 → 인프라 예산 확대 기대</li>
+          <li>노후 상하수도 설비 교체 수요 지속 증가</li>
+          <li>에너지 효율 규제 강화로 인버터 펌프 교체 수요</li>
+          <li>중소기업자간 경쟁제품 제도 2025~2027 유지</li>
+          <li>스마트워터 인프라 정책과 연계된 신규 발주</li>
+          <li>정부 R&D·설비 보조금 중소기업 지원 확대</li>
+        </ul>
+      </div>
+      <div class="swot-card threat">
+        <div class="swot-title"><div class="swot-icon">T</div>위협 (Threat)</div>
+        <ul class="swot-list">
+          <li>전국 규모 경쟁사의 지역 시장 진입 가격 압박</li>
+          <li>지자체 재정 긴축 → 발주 건수·금액 감소 가능성</li>
+          <li>원자재·인건비 상승으로 수익성 압박</li>
+          <li>기술 고도화 요구 (IoT 연동, 스마트 제어 시스템)</li>
+          <li>동종 소규모 업체 간 저가 수주 경쟁 심화</li>
+          <li>직접생산 기준 강화 시 인증 유지 비용 증가</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. STRATEGY -->
+  <section id="strategy">
+    <div class="section-label">Strategic Roadmap</div>
+    <h2 class="section-title">미래 성장 전략</h2>
+    <p class="section-desc">비에이텍의 현재 규모와 강점을 바탕으로 실현 가능한 5가지 성장 전략을 제시합니다.</p>
+    <div class="strategy-list">
+      <div class="strat-card reveal">
+        <div class="strat-num">1</div>
+        <div>
+          <div class="strat-title">지역 특화 심화 + 인접 시장 단계적 확대</div>
+          <div class="strat-body">강원도 내 공공기관 관계를 공고히 하면서, 충청도·경기 북부 등 인접 지자체의 조달 입찰에 단계적으로 참여. 강원특별자치도 신규 예산 사업(관광 인프라, 신도시 상수도)에 선제적으로 대응. 지역 밀착 서비스와 빠른 AS는 전국 단위 경쟁사 대비 확실한 차별점.</div>
+          <div class="strat-tags">
+            <span class="strat-tag">단기 실행 가능</span>
+            <span class="strat-tag">핵심 경쟁우위 활용</span>
+            <span class="strat-tag">저비용 확장</span>
+          </div>
+        </div>
+      </div>
+      <div class="strat-card reveal">
+        <div class="strat-num">2</div>
+        <div>
+          <div class="strat-title">인버터·고효율 펌프 제품 라인 도입</div>
+          <div class="strat-body">에너지 효율 규제 강화 추세에 맞춰 인버터 내장형 고효율 펌프를 직접생산 품목에 추가. 기존 노후 펌프 교체 시장에서 고단가 제품 납품으로 매출 단가 상승 가능. 스마트워터 인프라 정책과 연계한 IoT 모니터링 기능 통합 제품으로 기술 차별화.</div>
+          <div class="strat-tags">
+            <span class="strat-tag">중기 (2~3년)</span>
+            <span class="strat-tag">기술 투자 필요</span>
+            <span class="strat-tag">수익성 개선</span>
+          </div>
+        </div>
+      </div>
+      <div class="strat-card reveal">
+        <div class="strat-num">3</div>
+        <div>
+          <div class="strat-title">조달청 우수조달물품·혁신제품 지정 도전</div>
+          <div class="strat-body">조달청 우수조달물품 또는 혁신제품으로 지정되면 수의계약이 가능해져 입찰 경쟁 없이 납품 채널 확보. 기술적 차별성 입증이 핵심 조건이므로, 인버터 통합 펌프 또는 IoT 연동 제품 개발과 병행 추진이 효과적. 지정 후에는 조달청 쇼핑몰 등재로 전국 공공기관에 노출.</div>
+          <div class="strat-tags">
+            <span class="strat-tag">중기 (2~4년)</span>
+            <span class="strat-tag">경쟁 우회</span>
+            <span class="strat-tag">전국 판로 확보</span>
+          </div>
+        </div>
+      </div>
+      <div class="strat-card reveal">
+        <div class="strat-num">4</div>
+        <div>
+          <div class="strat-title">유지보수·정기점검 AS 서비스 사업 강화</div>
+          <div class="strat-body">납품 후 정기 점검·수리 계약을 체계화하여 반복 수익 창출. 상수도·하수도 펌프는 24시간 운영 설비로 AS 신뢰도가 발주 기관의 핵심 선정 기준. 소규모 기업의 춘천 거점 운영은 대형 경쟁사 대비 즉시 대응 면에서 압도적 우위. 연간 유지보수 계약 확보는 매출 안정성도 보완.</div>
+          <div class="strat-tags">
+            <span class="strat-tag">단기 실행 가능</span>
+            <span class="strat-tag">반복 수익</span>
+            <span class="strat-tag">고객 충성도 강화</span>
+          </div>
+        </div>
+      </div>
+      <div class="strat-card reveal">
+        <div class="strat-num">5</div>
+        <div>
+          <div class="strat-title">정부 R&D·설비 지원사업 적극 활용</div>
+          <div class="strat-body">중소벤처기업부, 강원특별자치도, 기술보증기금, TIPS 등 정책자금을 통해 기술개발·설비 확충. Main-Biz·벤처기업 인증이 이미 확보되어 있어 다수 지원사업의 자격 요건 충족. 자체 R&D 역량 한계를 정부 자금과 지역 대학(강원대, 한림대) 산학협력으로 보완 가능. 규모 성장 없이도 기술력 향상 실현 가능한 경로.</div>
+          <div class="strat-tags">
+            <span class="strat-tag">단기 시작</span>
+            <span class="strat-tag">외부 자원 활용</span>
+            <span class="strat-tag">기술 역량 강화</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CERTS -->
+  <section id="certs">
+    <div class="section-label">Certifications & Registrations</div>
+    <h2 class="section-title">인증 및 등록 현황</h2>
+    <p class="section-desc">공공조달 시장 참여에 필수적인 인증을 완비하고 있으며, 품질경영 및 기술혁신 인증도 보유합니다.</p>
+    <div class="cert-grid reveal">
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">ISO 9001:2015</div>
+          <div class="cert-detail">품질경영시스템 국제인증<br>인증일 2024.08.23 / 유효 2027.08.22<br>인증기관: ICR (No. QI291124)</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">직접생산확인증명서</div>
+          <div class="cert-detail">발급번호 제2023-0616-00085호<br>11종 펌프류 직접생산 확인<br>발급 2025.06.10 / 한국중소벤처기업유통원</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">경영혁신형 중소기업 (Main-Biz)</div>
+          <div class="cert-detail">제R180801-01794호<br>유효기간 2024.09.14 ~ 2027.09.13<br>중소벤처기업부 장관 인증</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">벤처기업 인증</div>
+          <div class="cert-detail">2012년 12월 취득 (중소기업청)<br>기술혁신 중소기업 공식 인정<br>각종 정책자금 우대 자격 확보</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">산업단지 입주확인서</div>
+          <div class="cert-detail">퇴계제2농공단지 분양 입주<br>등록변경 2023.06.26<br>한국산업단지공단 이사장 확인</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">한국펌프공업협동조합 조합원</div>
+          <div class="cert-detail">조합원증 제151호<br>가입일 2015.01.07<br>업계 공식 협회 정식 회원</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">강원도지사 표창</div>
+          <div class="cert-detail">제4334호 (2017.12.29)<br>상수도 관리 활동 공로 표창<br>강원도지사 최문순 수여</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div>
+          <div class="cert-name">사업자등록증 (법인)</div>
+          <div class="cert-detail">등록번호 221-81-42625<br>2023.11.24 춘천세무서장 발급<br>제조업·도소매·부동산 임대업</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">비에이텍(주) 기업 분석 보고서</div>
+      <div class="footer-note" style="margin-top:4px;">Blue Advanced Technology Co., Ltd. | 강원특별자치도 춘천시 퇴계공단2길 64</div>
+    </div>
+    <div class="footer-note" style="text-align:right;">
+      본 보고서는 회사 제출 지명원 및 공개 자료를 기반으로 작성되었습니다.<br>
+      작성 기준일: 2025년 6월 | 내부 참고용
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => io.observe(el));
+
+  // nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'white' : '';
+      a.style.borderBottomColor = a.getAttribute('href') === '#' + current ? '#7aaddd' : '';
+    });
+  });
+</script>
+</body>
+</html>

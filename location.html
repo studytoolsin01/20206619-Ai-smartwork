@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오시는 길 | (주) 비에이텍</title>
+    <link rel="icon" type="image/png" href="certs/kc_cert.png">
+    
+    <meta name="description" content="강원도 춘천시 퇴계공단에 위치한 비에이텍 본사 및 공장 방문을 위한 교통 안내입니다.">
+    <meta property="og:title" content="오시는 길 | (주) 비에이텍">
+    <meta property="og:description" content="비에이텍 본사 방문을 환영합니다. 남춘천역 인근 퇴계공단에 위치해 있습니다.">
+    <meta property="og:image" content="assets/factory_ext.png">
+    
+    <!-- Fonts: Pretendard -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">(주) 비에이텍</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">홈</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">회사소개</a></li>
+                    <li class="nav__item"><a href="equipment.html" class="nav__link">장비소개</a></li>
+                    <li class="nav__item"><a href="location.html" class="nav__link active-link">오시는 길</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">고객문의</a></li>
+                    <li class="nav__item"><a href="employee.html" class="nav__link"><i class="ri-lock-line" style="font-size: 0.85rem; margin-right: 0.15rem; vertical-align: middle;"></i>임직원 포털</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Theme & BGM change buttons -->
+                <div class="nav__controls">
+                    <i class="ri-music-2-line bgm-button" id="bgm-button" title="BGM On/Off"></i>
+                    <i class="ri-moon-line change-theme" id="theme-button" title="다크모드 전환"></i>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Background Music -->
+    <audio id="site-bgm" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+        브라우저가 오디오 태그를 지원하지 않습니다.
+    </audio>
+
+    <main class="main">
+        <section class="subpage-header">
+            <div class="container">
+                <h1 class="subpage-header__title">오시는 길</h1>
+                <p class="subpage-header__subtitle">비에이텍 본사 및 공장 위치를 안내해 드립니다.</p>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location section">
+            <div class="container">
+                <h2 class="section__title">오시는 길</h2>
+                <span class="section__subtitle">Visit Our Headquarter</span>
+
+                <div class="location__container grid">
+                    <div class="location__map-box">
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.406323604318!2d127.7323113123683!3d37.84880597184206!2m3!1f0!2f0!3f0!3m2!1i1024!2i1024!3h640!4f13.1!3m3!1m2!1s0x3562e5b6f387c97f%3A0x6b6e4b9f9e9e9e9e!2z6rK96riw64-EIOy2mOyynOyLnCDm_계공단2길 64!5e0!3m2!1sko!2skr!4v1715690000000!5m2!1sko!2skr" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="location__nav-btns">
+                            <a href="https://map.naver.com/v5/search/%EA%B0%95%EC%9B%90%20%EC%B6%98%EC%B2%9C%EC%8B%9C%20%ED%87%B4%EA%B3%84%EA%B3%B5%EB%8B%A82%EA%B8%B8%2064" target="_blank" class="button button--small button--secondary"><i class="ri-map-pin-user-line"></i> 네이버 지도</a>
+                            <a href="https://map.kakao.com/?q=%EA%B0%95%EC%9B%90%20%EC%B6%98%EC%B2%9C%EC%8B%9C%20%ED%87%B4%EA%B3%84%EA%B3%B5%EB%8B%A82%EA%B8%B8%2064" target="_blank" class="button button--small button--secondary"><i class="ri-map-2-line"></i> 카카오 맵</a>
+                        </div>
+                    </div>
+
+                    <div class="location__data">
+                        <div class="location__img-box">
+                            <img src="assets/factory_ext.png" alt="비에이텍 본사 외관" class="location__img">
+                            <p class="location__img-caption">비에이텍 본사 및 제1공장 전경</p>
+                        </div>
+
+                        <div class="location__info-group">
+                            <div class="location__info">
+                                <h3 class="location__info-title"><i class="ri-map-pin-line"></i> 주소</h3>
+                                <p>강원특별자치도 춘천시 퇴계공단2길 64 (퇴계동)</p>
+                            </div>
+
+                            <div class="location__info">
+                                <h3 class="location__info-title"><i class="ri-bus-line"></i> 대중교통 이용</h3>
+                                <p>
+                                    <strong>지하철:</strong> 경춘선 <strong>남춘천역</strong> 하차 (택시 이용 시 약 7분 소요)<br>
+                                    <strong>버스:</strong> 1, 2, 7, 9번 '퇴계농공단지' 정류장 하차 후 도보 5분
+                                </p>
+                            </div>
+
+                            <div class="location__info">
+                                <h3 class="location__info-title"><i class="ri-car-line"></i> 자차 이용 및 주차</h3>
+                                <p>춘천IC에서 남춘천 방향으로 진출 후 퇴계공단 방면 이동. 공장 부지 내 <strong>무료 주차 가능</strong>합니다.</p>
+                            </div>
+
+                            <div class="location__info">
+                                <h3 class="location__info-title"><i class="ri-phone-line"></i> 방문 문의</h3>
+                                <p>Tel: 033-264-9243 / Fax: 033-251-5747</p>
+                                <a href="tel:0332649243" class="button button--small">전화 연결</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">(주) 비에이텍</h3>
+                <p class="footer__description">깨끗한 물을 만드는 기술로 내일을 설계합니다.</p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">메뉴</h3>
+                <ul>
+                    <li><a href="index.html" class="footer__link">홈</a></li>
+                    <li><a href="about.html" class="footer__link">회사소개</a></li>
+                    <li><a href="equipment.html" class="footer__link">장비소개</a></li>
+                    <li><a href="contact.html" class="footer__link">문의하기</a></li>
+                    <li><a href="employee.html" class="footer__link" style="opacity: 0.4; font-size: 0.8rem; margin-top: 0.5rem; display: inline-block;"><i class="ri-lock-line"></i> 임직원 포털</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">연락처</h3>
+                <p class="footer__info">주소: 강원 춘천시 퇴계공단2길 64</p>
+                <p class="footer__info">Tel: 033-264-9243</p>
+                <p class="footer__info">Fax: 033-251-5747</p>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2024 (주) 비에이텍. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!-- Chatbot -->
+    <div id="chatbot-toggle" class="chatbot__toggle">
+        <i class="ri-chat-smile-3-line"></i>
+    </div>
+
+    <div id="chatbot-container" class="chatbot__container">
+        <div class="chat-header">
+            <span>비에이텍 실시간 상담</span>
+            <button id="chat-close" class="chat-close">?</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">안녕하세요! (주) 비에이텍입니다. 무엇을 도와드릴까요?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="메시지를 입력하세요...">
+            <button id="send-btn" class="send-btn">전송</button>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox__close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="pdf-modal">
+        <span class="pdf-modal__close" onclick="closePDF()">&times;</span>
+        <div class="pdf-modal__content">
+            <iframe id="pdf-iframe" class="pdf-modal__iframe"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

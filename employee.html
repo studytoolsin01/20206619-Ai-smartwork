@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임직원 포털 | (주) 비에이텍</title>
+    <link rel="icon" type="image/png" href="certs/kc_cert.png">
+    
+    <!-- Fonts: Pretendard -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- Link public corporate styles first, then our portal overrides -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="employee.css">
+</head>
+<body class="employee-body">
+
+    <!-- 1. LOCK SCREEN (Verification Modal) -->
+    <div class="lock-screen" id="lock-screen">
+        <div class="lock-container">
+            <div class="lock-icon-wrapper">
+                <i class="ri-lock-password-line"></i>
+            </div>
+            <h1 class="lock-logo">(주) 비에이텍</h1>
+            <p class="lock-subtitle">임직원 전용 인증 포털</p>
+            
+            <form class="lock-form" id="lock-form" onsubmit="doLogin(); return false;">
+                <div class="lock-input-group">
+                    <input type="password" id="lock-pin" class="lock-input" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter'){doLogin();}">
+                </div>
+                <div class="lock-error" id="lock-error"></div>
+                <button type="button" class="lock-button" onclick="doLogin()">인증 및 접속</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. PORTAL CONTENT WRAPPER -->
+    <div class="portal-wrapper-root" id="portal-wrapper" style="display: none;">
+        
+        <!-- Corporate Header (matches index.html/contact.html layout) -->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="index.html" class="nav__logo">(주) 비에이텍</a>
+                
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link">홈</a></li>
+                        <li class="nav__item"><a href="about.html" class="nav__link">회사소개</a></li>
+                        <li class="nav__item"><a href="equipment.html" class="nav__link">장비소개</a></li>
+                        <li class="nav__item"><a href="location.html" class="nav__link">오시는 길</a></li>
+                        <li class="nav__item"><a href="contact.html" class="nav__link">고객문의</a></li>
+                        <li class="nav__item"><a href="employee.html" class="nav__link active-link"><i class="ri-lock-line" style="font-size: 0.85rem; margin-right: 0.15rem; vertical-align: middle;"></i>임직원 포털</a></li>
+                    </ul>
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <div class="nav__controls">
+                        <i class="ri-music-2-line bgm-button" id="bgm-button" title="BGM On/Off"></i>
+                        <i class="ri-moon-line change-theme" id="theme-button" title="다크모드 전환"></i>
+                    </div>
+                    <div class="nav__toggle" id="nav-toggle">
+                        <span class="hamburger"></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Background Music -->
+        <audio id="site-bgm" loop>
+            <source src="bgm.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Subpage Banner (matches contact.html layout) -->
+        <section class="subpage-header">
+            <div class="container">
+                <h1 class="subpage-header__title">임직원 업무 전용 포털</h1>
+                <p class="subpage-header__subtitle">비에이텍 실무 임직원을 위한 고객 문의 관리 및 사내 데이터 통합 지식베이스입니다.</p>
+            </div>
+        </section>
+
+        <!-- Tab Horizontal Navigation Bar -->
+        <div class="portal-nav-bar">
+            <div class="container portal-nav-inner">
+                <button class="portal-nav-btn active" data-tab="dashboard">
+                    <i class="ri-dashboard-line"></i>
+                    <span>대시보드 홈</span>
+                </button>
+                <button class="portal-nav-btn" data-tab="inquiries">
+                    <i class="ri-mail-open-line"></i>
+                    <span>고객 문의 관리</span>
+                </button>
+                <button class="portal-nav-btn" data-tab="chatbot">
+                    <i class="ri-bubble-chart-line"></i>
+                    <span>AI 지식 어시스턴트 (NotebookLM)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Workspace Section -->
+        <section class="portal-main-section section">
+            <div class="container">
+                
+                <!-- Welcome Widget -->
+                <div class="portal-welcome-banner">
+                    <div class="welcome-text">
+                        <i class="ri-shield-user-line" style="margin-right: 0.25rem;"></i>
+                        안녕하세요, <span>조세연 관리자님</span>. 현재 업무 시스템이 활성화 상태입니다.
+                    </div>
+                    <button class="logout-btn-text" id="logout-btn">
+                        <i class="ri-logout-box-r-line"></i> 로그아웃
+                    </button>
+                </div>
+
+                <!-- TAB 1: DASHBOARD HOME -->
+                <div class="tab-pane active" id="tab-dashboard">
+                    <div class="home-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">전체 고객 문의</span>
+                                <span class="stat-value" id="stat-total-val">0</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="ri-time-line" style="color: var(--warning);"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">답변 대기 문의</span>
+                                <span class="stat-value" id="stat-pending-val" style="color: var(--warning);">0</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="ri-checkbox-circle-line" style="color: var(--success);"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">답변 완료 문의</span>
+                                <span class="stat-value" id="stat-done-val" style="color: var(--success);">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dash-sections">
+                        <!-- Left: Recent Inquiries -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3 class="dash-card-title"><i class="ri-history-line"></i> 최근 접수된 문의</h3>
+                                <span style="font-size: var(--smaller-font-size); color: var(--text-color-light);">실시간 연동</span>
+                            </div>
+                            <div class="quick-inquiry-list" id="quick-inquiry-list">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+                        </div>
+                        
+                        <!-- Right: Notice/Admin Tasks -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3 class="dash-card-title"><i class="ri-notification-badge-line"></i> 중요 업무 일정</h3>
+                            </div>
+                            <div class="notice-list">
+                                <div class="notice-item" style="border-left-color: var(--danger);">
+                                    <h4 class="notice-title">경영혁신형 중소기업(Main-Biz) 인증 갱신</h4>
+                                    <p class="notice-desc">Main-Biz 인증 만료일: 2027.09.13. 유효기간 연장을 위한 경영 평가 및 조달 실적 자료 정리가 필요합니다.</p>
+                                    <div class="notice-date">발생: 2026-06-01 | 관리팀</div>
+                                </div>
+                                <div class="notice-item" style="border-left-color: var(--warning);">
+                                    <h4 class="notice-title">ISO 9001:2015 갱신 주기 도래</h4>
+                                    <p class="notice-desc">품질경영시스템 인증 만료일: 2027.08.22. 인증 대행 실사 일정 확인 및 심사 서류 대조가 요구됩니다.</p>
+                                    <div class="notice-date">발생: 2026-05-28 | 품질보증부</div>
+                                </div>
+                                <div class="notice-item">
+                                    <h4 class="notice-title">춘천시 상수도 공사 장비 납품</h4>
+                                    <p class="notice-desc">다단볼루트펌프 2대 및 부스터 시스템 1조 인수 검사 성적서 발급 완료. 최종 인도가 예정되어 있습니다.</p>
+                                    <div class="notice-date">발생: 2026-05-25 | 생산본부</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TAB 2: INQUIRY MANAGEMENT -->
+                <div class="tab-pane" id="tab-inquiries">
+                    <div class="filter-bar">
+                        <div class="filter-group">
+                            <button class="filter-btn active" data-filter="all">전체</button>
+                            <button class="filter-btn" data-filter="pending">답변대기</button>
+                            <button class="filter-btn" data-filter="resolved">처리완료</button>
+                        </div>
+                        <div class="search-input-group">
+                            <i class="ri-search-line"></i>
+                            <input type="text" class="inquiry-search" id="inquiry-search-field" placeholder="고객명, 내용 등 검색...">
+                        </div>
+                    </div>
+                    
+                    <div class="inquiry-table-card">
+                        <table class="inquiry-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 15%; text-align: left;">유형</th>
+                                    <th style="width: 20%; text-align: left;">성함 / 업체명</th>
+                                    <th style="width: 35%; text-align: left;">문의 내용 요약</th>
+                                    <th style="width: 15%; text-align: left;">접수일시</th>
+                                    <th style="width: 10%; text-align: left;">처리상태</th>
+                                    <th style="width: 10%; text-align: left;">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inquiry-tbody">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                        <div class="table-footer">
+                            <span id="table-info-count">검색 결과: 0건 / 전체: 0건</span>
+                            <span>행 더블클릭 시 상세 모달창이 열립니다.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TAB 3: NOTEBOOKLM AI KNOWLEDGE BASE -->
+                <div class="tab-pane" id="tab-chatbot">
+                    <div class="notebook-layout">
+                        
+                        <!-- Left Panel: Document Sources -->
+                        <div class="sources-panel">
+                            <div class="sources-header">
+                                <h3 class="sources-title">
+                                    <i class="ri-folders-line"></i>
+                                    <span>사내 지식 소스</span>
+                                </h3>
+                                <span class="sources-meta">체크 시 해당 정보를 기반으로 답변합니다.</span>
+                            </div>
+                            
+                            <div class="sources-list" id="sources-list">
+                                <!-- Strategic Report Source -->
+                                <div class="source-card checked" data-src-id="src_report">
+                                    <div class="source-checkbox"><i class="ri-check-line"></i></div>
+                                    <div class="source-card-details">
+                                        <span class="source-card-name">비에이텍_전략_분석_보고서.html</span>
+                                        <span class="source-card-info"><i class="ri-article-line"></i> 44.9 KB | 내부 분석자료</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Volute Pump Manual -->
+                                <div class="source-card checked" data-src-id="src_volute">
+                                    <div class="source-checkbox"><i class="ri-check-line"></i></div>
+                                    <div class="source-card-details">
+                                        <span class="source-card-name">volute_manual.pdf</span>
+                                        <span class="source-card-info"><i class="ri-file-pdf-line"></i> 427 KB | 다단볼루트 매뉴얼</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Booster Pump Manual -->
+                                <div class="source-card checked" data-src-id="src_booster">
+                                    <div class="source-checkbox"><i class="ri-check-line"></i></div>
+                                    <div class="source-card-details">
+                                        <span class="source-card-name">booster_manual.pdf</span>
+                                        <span class="source-card-info"><i class="ri-file-pdf-line"></i> 122 KB | 부스터 매뉴얼</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Dosing Pump Manual -->
+                                <div class="source-card checked" data-src-id="src_dosing">
+                                    <div class="source-checkbox"><i class="ri-check-line"></i></div>
+                                    <div class="source-card-details">
+                                        <span class="source-card-name">dosing_manual.pdf</span>
+                                        <span class="source-card-info"><i class="ri-file-pdf-line"></i> 18.3 MB | 정량펌프 매뉴얼</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Submersible Manual -->
+                                <div class="source-card checked" data-src-id="src_submersible">
+                                    <div class="source-checkbox"><i class="ri-check-line"></i></div>
+                                    <div class="source-card-details">
+                                        <span class="source-card-name">submersible_manual.pdf</span>
+                                        <span class="source-card-info"><i class="ri-file-pdf-line"></i> 480 KB | 수중펌프 매뉴얼</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mono Volute Manual -->
+                                <div class="source-card checked" data-src-id="src_mono">
+                                    <div class="source-checkbox"><i class="ri-check-line"></i></div>
+                                    <div class="source-card-details">
+                                        <span class="source-card-name">mono_manual.pdf</span>
+                                        <span class="source-card-info"><i class="ri-file-pdf-line"></i> 200 KB | 편흡입볼루트 매뉴얼</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Sludge Pump Manual -->
+                                <div class="source-card checked" data-src-id="src_sludge">
+                                    <div class="source-checkbox"><i class="ri-check-line"></i></div>
+                                    <div class="source-card-details">
+                                        <span class="source-card-name">sludge_manual.pdf</span>
+                                        <span class="source-card-info"><i class="ri-file-pdf-line"></i> 265 KB | 슬러지펌프 매뉴얼</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Certificates -->
+                                <div class="source-card checked" data-src-id="src_certs">
+                                    <div class="source-checkbox"><i class="ri-check-line"></i></div>
+                                    <div class="source-card-details">
+                                        <span class="source-card-name">인증서_종합_현황.html</span>
+                                        <span class="source-card-info"><i class="ri-shield-check-line"></i> ISO, KC, Main-Biz 등</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- File Upload Area -->
+                            <div class="source-upload-zone">
+                                <div class="upload-dropzone" id="upload-dropzone">
+                                    <i class="ri-upload-cloud-line"></i>
+                                    <span class="upload-text">드래그앤드롭 또는 클릭하여 파일 업로드</span>
+                                    <input type="file" id="source-file-input" style="display: none;" multiple accept=".txt,.pdf,.html,.png,.jpg">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel: AI Chat Panel -->
+                        <div class="chat-console">
+                            <div class="chat-console-header">
+                                <span class="active-sources-pill" id="active-sources-pill">소스 8개 선택됨</span>
+                                <span style="font-size: var(--smaller-font-size); color: var(--text-color-light);"><i class="ri-lock-line"></i> 사내 내부 보안망 연결</span>
+                            </div>
+                            
+                            <div class="chat-messages" id="chat-messages">
+                                <!-- Chat bubbles populated dynamically -->
+                            </div>
+                            
+                            <!-- Suggestions Bar -->
+                            <div class="prompt-suggestions">
+                                <button class="prompt-chip">경쟁사에 대해 알려줘</button>
+                                <button class="prompt-chip">부스터펌프 E02 해결법</button>
+                                <button class="prompt-chip">회사 핵심 SWOT 분석 요약</button>
+                                <button class="prompt-chip">다단볼루트펌프 기동 점검 순서</button>
+                                <button class="prompt-chip">ISO9001 인증 정보 및 만료일</button>
+                            </div>
+                            
+                            <!-- Chat Input Bar -->
+                            <div class="chat-console-input-bar">
+                                <div class="chat-input-wrapper">
+                                    <input type="text" class="chat-console-input" id="chat-console-input" placeholder="질문하실 내용을 입력해 주세요...">
+                                </div>
+                                <button class="chat-send-btn" id="chat-console-send-btn" title="전송">
+                                    <i class="ri-send-plane-2-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- Corporate Footer (matches index.html layout) -->
+        <footer class="footer">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <h3 class="footer__title">(주) 비에이텍</h3>
+                    <p class="footer__description">깨끗한 물을 만드는 기술로 내일을 설계합니다.</p>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__subtitle">메뉴</h3>
+                    <ul>
+                        <li><a href="index.html" class="footer__link">홈</a></li>
+                        <li><a href="about.html" class="footer__link">회사소개</a></li>
+                        <li><a href="equipment.html" class="footer__link">장비소개</a></li>
+                        <li><a href="contact.html" class="footer__link">문의하기</a></li>
+                        <li><a href="employee.html" class="footer__link" style="opacity: 0.4; font-size: 0.8rem; margin-top: 0.5rem; display: inline-block;"><i class="ri-lock-line"></i> 임직원 포털</a></li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__subtitle">연락처</h3>
+                    <p class="footer__info">주소: 강원 춘천시 퇴계공단2길 64</p>
+                    <p class="footer__info">Tel: 033-264-9243</p>
+                    <p class="footer__info">Fax: 033-251-5747</p>
+                </div>
+            </div>
+            <p class="footer__copy">&#169; 2024 (주) 비에이텍. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <!-- 3. POPUP MODAL: INQUIRY DETAILS & REPLY -->
+    <div class="modal-overlay" id="inquiry-detail-modal">
+        <div class="portal-modal">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="ri-mail-open-line"></i> 고객 문의 상세 및 답변 처리</h3>
+                <button class="modal-close"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="inquiry-detail-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">문의 유형</span>
+                        <span class="detail-value" id="modal-inq-type" style="color: var(--first-color); font-weight: bold;">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">처리 상태</span>
+                        <span class="detail-value" id="modal-inq-status">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">성함 / 업체명</span>
+                        <span class="detail-value" id="modal-inq-name">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">접수일시</span>
+                        <span class="detail-value" id="modal-inq-date">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">연락처</span>
+                        <span class="detail-value" id="modal-inq-phone">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">이메일</span>
+                        <span class="detail-value" id="modal-inq-email">-</span>
+                    </div>
+                    <div class="detail-item full-width">
+                        <span class="detail-label" style="margin-bottom: 0.25rem;">문의 내용</span>
+                        <div class="message-box" id="modal-inq-message">-</div>
+                    </div>
+                </div>
+                
+                <div class="reply-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <span class="detail-label" style="font-weight: 700; color: var(--title-color);">메일 답변 작성</span>
+                        <span style="font-size: var(--smaller-font-size); color: var(--text-color-light);">템플릿 클릭 시 입력창에 반영됩니다.</span>
+                    </div>
+                    
+                    <!-- Quick Templates chips -->
+                    <div id="reply-templates-box" style="margin-bottom: 0.5rem; display: flex; flex-wrap: wrap;">
+                        <!-- Rendered by JS -->
+                    </div>
+                    
+                    <textarea id="modal-reply-text" rows="5" class="reply-textarea" placeholder="고객에게 송부할 공식 답변 메일 본문을 입력해 주세요. 작성 후 전송하면 상태가 '처리완료'로 변경됩니다."></textarea>
+                    <span class="reply-helper-text">작성된 내용은 로컬에 저장되며, 전송 시 가상의 고객 메일함으로 발송(Confetti 이펙트)이 완료됩니다.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="modal-cancel-btn">닫기</button>
+                <button class="btn-primary" id="modal-save-reply-btn"><i class="ri-mail-send-line"></i> 답변 저장 및 전송 시뮬레이션</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minimal header/theme script (script.js는 충돌로 제외) -->
+    <script>
+    // 햄버거 메뉴
+    (function() {
+        var navMenu = document.getElementById('nav-menu');
+        var navToggle = document.getElementById('nav-toggle');
+        var navClose = document.getElementById('nav-close');
+        if (navToggle) navToggle.addEventListener('click', function() { navMenu.classList.add('show-menu'); });
+        if (navClose)  navClose.addEventListener('click',  function() { navMenu.classList.remove('show-menu'); });
+        document.querySelectorAll('.nav__link').forEach(function(n) {
+            n.addEventListener('click', function() { navMenu.classList.remove('show-menu'); });
+        });
+
+        // 헤더 스크롤 배경
+        window.addEventListener('scroll', function() {
+            var h = document.getElementById('header');
+            if (h) { if (window.scrollY >= 80) h.classList.add('scroll-header'); else h.classList.remove('scroll-header'); }
+        });
+
+        // 다크모드
+        var themeBtn = document.getElementById('theme-button');
+        if (themeBtn) {
+            var stored = localStorage.getItem('selected-theme');
+            if (stored === 'dark') { document.body.classList.add('dark-theme'); themeBtn.classList.add('ri-sun-line'); themeBtn.classList.remove('ri-moon-line'); }
+            themeBtn.addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
+                var isDark = document.body.classList.contains('dark-theme');
+                if (isDark) { themeBtn.classList.add('ri-sun-line'); themeBtn.classList.remove('ri-moon-line'); }
+                else        { themeBtn.classList.remove('ri-sun-line'); themeBtn.classList.add('ri-moon-line'); }
+                localStorage.setItem('selected-theme', isDark ? 'dark' : 'light');
+            });
+        }
+
+        // BGM
+        var bgmBtn = document.getElementById('bgm-button');
+        var bgmAudio = document.getElementById('site-bgm');
+        var isPlaying = false;
+        if (bgmBtn && bgmAudio) {
+            bgmBtn.onclick = function() {
+                if (isPlaying) { bgmAudio.pause(); bgmBtn.classList.replace('ri-music-fill','ri-music-2-line'); }
+                else { bgmAudio.play().catch(function(){}); bgmBtn.classList.replace('ri-music-2-line','ri-music-fill'); }
+                isPlaying = !isPlaying;
+            };
+        }
+    })();
+    </script>
+    <script src="employee.js"></script>
+
+    <!-- INLINE FAILSAFE LOGIN SCRIPT: runs regardless of employee.js status -->
+    <script>
+    function doLogin() {
+        var pin = document.getElementById('lock-pin');
+        var errorEl = document.getElementById('lock-error');
+        if (!pin) { alert('입력 필드를 찾을 수 없습니다.'); return; }
+
+        if (pin.value.trim() !== '') {
+            window._batechLoggedIn = true;
+
+            var lockScreen = document.getElementById('lock-screen');
+            var portalWrapper = document.getElementById('portal-wrapper');
+
+            if (lockScreen)    lockScreen.style.display = 'none';
+            if (portalWrapper) { portalWrapper.style.display = 'block'; }
+            if (errorEl)       errorEl.textContent = '';
+
+            // 포털 컴포넌트 초기화 (employee.js 함수가 있으면 호출)
+            try { if (typeof loadInquiriesData === 'function') loadInquiriesData(); } catch(e){}
+            try { if (typeof setupTabs         === 'function') setupTabs(); }         catch(e){}
+            try { if (typeof setupInquiryControls === 'function') setupInquiryControls(); } catch(e){}
+            try { if (typeof setupSources      === 'function') setupSources(); }      catch(e){}
+            try { if (typeof setupChatConsole  === 'function') setupChatConsole(); }  catch(e){}
+            try { if (typeof setupFileUpload   === 'function') setupFileUpload(); }   catch(e){}
+        } else {
+            if (errorEl) errorEl.textContent = '인증번호를 입력해 주십시오.';
+            var c = document.querySelector('.lock-container');
+            if (c) { c.style.animation = 'none'; c.offsetHeight; c.style.animation = ''; c.classList.add('shake'); setTimeout(function(){ c.classList.remove('shake'); }, 500); }
+            pin.value = '';
+            pin.focus();
+        }
+    }
+
+    function doLogout() {
+        window._batechLoggedIn = false;
+        window.location.reload();
+    }
+
+    // Enter 키 지원
+    document.addEventListener('DOMContentLoaded', function() {
+        var pin = document.getElementById('lock-pin');
+        if (pin) {
+            pin.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') { e.preventDefault(); doLogin(); }
+            });
+        }
+        var logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) logoutBtn.onclick = doLogout;
+    });
+    </script>
+</body>
+</html>

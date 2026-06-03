@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장비 및 기술 | (주) 비에이텍</title>
+    <link rel="icon" type="image/png" href="certs/kc_cert.png">
+    
+    <meta name="description" content="부스터펌프, 수중펌프, 슬러지펌프 등 비에이텍의 고성능 제품 라인업과 5단계 제조 공정을 소개합니다.">
+    <meta property="og:title" content="장비 및 기술 | (주) 비에이텍">
+    <meta property="og:description" content="정밀 설계부터 성능 시험까지, 비에이텍만의 펌프 제조 기술력을 확인하세요.">
+    <meta property="og:image" content="assets/cad_drawing.png">
+    
+    <!-- Fonts: Pretendard -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Page Flip (Flipbook) -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">(주) 비에이텍</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">홈</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">회사소개</a></li>
+                    <li class="nav__item"><a href="equipment.html" class="nav__link active-link">장비소개</a></li>
+                    <li class="nav__item"><a href="location.html" class="nav__link">오시는 길</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">고객문의</a></li>
+                    <li class="nav__item"><a href="employee.html" class="nav__link"><i class="ri-lock-line" style="font-size: 0.85rem; margin-right: 0.15rem; vertical-align: middle;"></i>임직원 포털</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Theme & BGM change buttons -->
+                <div class="nav__controls">
+                    <i class="ri-music-2-line bgm-button" id="bgm-button" title="BGM On/Off"></i>
+                    <i class="ri-moon-line change-theme" id="theme-button" title="다크모드 전환"></i>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Background Music -->
+    <audio id="site-bgm" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+        브라우저가 오디오 태그를 지원하지 않습니다.
+    </audio>
+
+    <main class="main">
+        <section class="subpage-header">
+            <div class="container">
+                <h1 class="subpage-header__title">장비 및 시설</h1>
+                <p class="subpage-header__subtitle">비에이텍의 최첨단 기술력과 인프라를 확인하세요.</p>
+            </div>
+        </section>
+
+        <!-- Equipment Introduction -->
+        <section class="equipment section">
+            <div class="container">
+                <h2 class="section__title">주요 제품</h2>
+                <span class="section__subtitle">Our Key Products</span>
+
+                <div class="equipment__container grid">
+                    <!-- Product 1: Multi-stage Volute -->
+                    <article class="equipment__card">
+                        <div class="equipment__img-box">
+                            <img src="assets/multi_stage_pump.png" alt="다단볼루트펌프" class="equipment__img">
+                        </div>
+                        <div class="equipment__data">
+                            <h3 class="equipment__name">다단볼루트펌프</h3>
+                            <p class="equipment__description">높은 양정과 고압이 필요한 산업 현장 및 상하수도 시설에 최적화된 고효율 펌프입니다.</p>
+                        </div>
+                    </article>
+
+                    <!-- Product 2: Single Suction Volute -->
+                    <article class="equipment__card">
+                        <div class="equipment__img-box">
+                            <img src="assets/single_suction_pump.png" alt="편흡입볼루트펌프" class="equipment__img">
+                        </div>
+                        <div class="equipment__data">
+                            <h3 class="equipment__name">편흡입볼루트펌프</h3>
+                            <p class="equipment__description">범용성이 뛰어나며 다양한 액체 이송에 사용되는 표준형 볼루트 펌프입니다.</p>
+                        </div>
+                    </article>
+
+                    <!-- Product 3: Centrifugal Pump -->
+                    <article class="equipment__card">
+                        <div class="equipment__img-box">
+                            <img src="assets/centrifugal_pump.png" alt="원심펌프" class="equipment__img">
+                        </div>
+                        <div class="equipment__data">
+                            <h3 class="equipment__name">원심펌프</h3>
+                            <p class="equipment__description">강력한 원심력을 활용하여 대용량의 유체를 안정적으로 이송하는 비에이텍의 핵심 기술 제품입니다.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Manufacturing Process -->
+        <section class="process section">
+            <div class="container">
+                <h2 class="section__title">제조 공정 및 기술력</h2>
+                <span class="section__subtitle">Our Manufacturing Excellence</span>
+
+                <div class="process__container grid">
+                    <!-- Step 1 -->
+                    <div class="process__item">
+                        <div class="process__header">
+                            <span class="process__number">01</span>
+                            <h3 class="process__title">정밀 설계 및 엔지니어링</h3>
+                        </div>
+                        <div class="process__content grid">
+                            <div class="process__img-box">
+                                <img src="assets/cad_drawing.png" alt="CAD 설계" class="process__img" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="process__data">
+                                <p class="process__description">최첨단 CAD 시스템을 활용하여 고객사의 요구 조건에 최적화된 유체 역학적 설계를 수행합니다. 정밀한 설계는 펌프의 고효율과 장수명을 보장합니다.</p>
+                                <ul class="process__list">
+                                    <li><i class="ri-checkbox-circle-line"></i> 3D 모델링 및 시뮬레이션</li>
+                                    <li><i class="ri-checkbox-circle-line"></i> 맞춤형 규격 설계</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="process__item">
+                        <div class="process__header">
+                            <span class="process__number">02</span>
+                            <h3 class="process__title">부품 정밀 가공</h3>
+                        </div>
+                        <div class="process__content grid">
+                            <div class="process__gallery grid">
+                                <img src="assets/lathe.png" alt="선반 가공" onclick="openLightbox(this.src)">
+                                <img src="assets/milling.png" alt="밀링 가공" onclick="openLightbox(this.src)">
+                                <img src="assets/plasma_cutter.png" alt="플라즈마 절단" onclick="openLightbox(this.src)">
+                                <img src="assets/drill.png" alt="드릴링" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="process__data">
+                                <p class="process__description">보유한 다양한 정밀 공작 기계를 활용하여 주요 부품을 직접 가공합니다. 숙련된 기술자의 손길로 오차 없는 정밀도를 구현합니다.</p>
+                                <ul class="process__list">
+                                    <li><i class="ri-tools-line"></i> 범용 선반 및 밀링 머신</li>
+                                    <li><i class="ri-tools-line"></i> CNC 정밀 가공 및 절단</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="process__item">
+                        <div class="process__header">
+                            <span class="process__number">03</span>
+                            <h3 class="process__title">전문 용접 및 조립</h3>
+                        </div>
+                        <div class="process__content grid">
+                            <div class="process__gallery grid">
+                                <img src="assets/argon_welder.png" alt="알곤 용접" onclick="openLightbox(this.src)">
+                                <img src="assets/electric_welder.png" alt="전기 용접" onclick="openLightbox(this.src)">
+                                <img src="assets/pump_workshop.png" alt="조립 워크숍" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="process__data">
+                                <p class="process__description">내식성이 강한 스테인리스 소재를 기반으로 한 고난도 알곤 용접과 정밀 조립이 이루어집니다. 비에이텍의 20년 노하우가 집약된 핵심 공정입니다.</p>
+                                <ul class="process__list">
+                                    <li><i class="ri-shield-user-line"></i> STS316 전문 특수 용접</li>
+                                    <li><i class="ri-shield-user-line"></i> 단계별 품질 체크 리스트 적용</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="process__item">
+                        <div class="process__header">
+                            <span class="process__number">04</span>
+                            <h3 class="process__title">품질 검사 및 성능 시험</h3>
+                        </div>
+                        <div class="process__content grid">
+                            <div class="process__img-box">
+                                <img src="assets/test_lab.png" alt="성능 시험" class="process__img" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="process__data">
+                                <p class="process__description">출고 전 모든 제품은 공인된 성능 시험장에서 유량, 양정, 소음 및 진동 테스트를 거칩니다. 완벽한 데이터가 확보된 제품만이 비에이텍의 이름을 달고 출고됩니다.</p>
+                                <ul class="process__list">
+                                    <li><i class="ri-microscope-line"></i> 전 제품 전수 검사 실시</li>
+                                    <li><i class="ri-microscope-line"></i> 국가 표준 규격(KS) 준수</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="process__item">
+                        <div class="process__header">
+                            <span class="process__number">05</span>
+                            <h3 class="process__title">최종 검수 및 안전 출고</h3>
+                        </div>
+                        <div class="process__content grid">
+                            <div class="process__gallery grid">
+                                <img src="assets/storage.png" alt="자재 관리" onclick="openLightbox(this.src)">
+                                <img src="assets/shipping.png" alt="출고 대기" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="process__data">
+                                <p class="process__description">안전하게 패킹된 제품은 철저한 자재 관리 시스템 하에 보관되며, 지정된 날짜에 신속하게 현장으로 인도됩니다. 사후 유지보수 관리 번호가 부여됩니다.</p>
+                                <ul class="process__list">
+                                    <li><i class="ri-truck-line"></i> 전국 신속 배송 시스템</li>
+                                    <li><i class="ri-truck-line"></i> 유지관리 매뉴얼 동봉</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Center (Manuals) -->
+        <section class="resource section">
+            <div class="container">
+                <h2 class="section__title">자료실</h2>
+                <span class="section__subtitle">Maintenance Manuals (PDF)</span>
+
+                <div class="resource__content">
+                    <!-- 1. Brochure (Featured at Top) -->
+                    <div class="resource__featured" style="margin-bottom: 2rem;">
+                        <div class="resource__card resource__card--featured">
+                            <div class="resource__info">
+                                <i class="ri-book-open-line resource__icon" style="color: #FFF;"></i>
+                                <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                                    <span class="resource__name" style="font-weight: var(--font-semi-bold); color: #FFF;">비에이텍 종합 브로슈어</span>
+                                    <p style="font-size: var(--smaller-font-size); color: rgba(255,255,255,0.8); margin: 0; line-height: 1.4;">
+                                        비에이텍의 전 제품군과 기술력이 담긴 통합 카탈로그입니다. (개별 페이지 및 전체 합본 이미지 수록)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="button-group" style="margin-top: 0; flex-shrink: 0;">
+                                <button onclick="openBrochure()" class="button button--small button--mini button--secondary">보기</button>
+                                <a href="assets/비에이텍_종합_브로슈어_png.png" class="button button--small button--mini" download="비에이텍_종합_브로슈어_png.png">png 다운</a>
+                                <a href="assets/비에이텍_종합_브로슈어_pdf.pdf" class="button button--small button--mini" download="비에이텍_종합_브로슈어_pdf.pdf">pdf 다운</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Manuals Grid (2 Columns below) -->
+                    <div class="resource__grid grid">
+                        <!-- Booster Pump -->
+                        <div class="resource__card">
+                            <div class="resource__info">
+                                <i class="ri-file-pdf-line resource__icon"></i>
+                                <span class="resource__name">부스터펌프 유지관리지침서</span>
+                            </div>
+                            <div class="button-group" style="margin-top: 0;">
+                                <button onclick="openPDF('manuals/booster_manual.pdf')" class="button button--small button--mini button--secondary">보기</button>
+                                <a href="manuals/booster_manual.pdf" class="button button--small button--mini" download="부스터펌프_유지관리지침서.pdf">다운로드</a>
+                            </div>
+                        </div>
+
+                        <!-- Submersible Pump -->
+                        <div class="resource__card">
+                            <div class="resource__info">
+                                <i class="ri-file-pdf-line resource__icon"></i>
+                                <span class="resource__name">수중펌프 유지관리지침서</span>
+                            </div>
+                            <div class="button-group" style="margin-top: 0;">
+                                <button onclick="openPDF('manuals/submersible_manual.pdf')" class="button button--small button--mini button--secondary">보기</button>
+                                <a href="manuals/submersible_manual.pdf" class="button button--small button--mini" download="수중펌프_유지관리지침서.pdf">다운로드</a>
+                            </div>
+                        </div>
+
+                        <!-- Sludge Pump -->
+                        <div class="resource__card">
+                            <div class="resource__info">
+                                <i class="ri-file-pdf-line resource__icon"></i>
+                                <span class="resource__name">슬러지펌프 유지관리지침서</span>
+                            </div>
+                            <div class="button-group" style="margin-top: 0;">
+                                <button onclick="openPDF('manuals/sludge_manual.pdf')" class="button button--small button--mini button--secondary">보기</button>
+                                <a href="manuals/sludge_manual.pdf" class="button button--small button--mini" download="슬러지펌프_유지관리지침서.pdf">다운로드</a>
+                            </div>
+                        </div>
+
+                        <!-- Mono Pump -->
+                        <div class="resource__card">
+                            <div class="resource__info">
+                                <i class="ri-file-pdf-line resource__icon"></i>
+                                <span class="resource__name">일축나사식 모노펌프 유지관리지침서</span>
+                            </div>
+                            <div class="button-group" style="margin-top: 0;">
+                                <button onclick="openPDF('manuals/mono_manual.pdf')" class="button button--small button--mini button--secondary">보기</button>
+                                <a href="manuals/mono_manual.pdf" class="button button--small button--mini" download>다운로드</a>
+                            </div>
+                        </div>
+
+                        <!-- Volute Pump -->
+                        <div class="resource__card">
+                            <div class="resource__info">
+                                <i class="ri-file-pdf-line resource__icon"></i>
+                                <span class="resource__name">편흡입볼류트펌프 유지관리지침서</span>
+                            </div>
+                            <div class="button-group" style="margin-top: 0;">
+                                <button onclick="openPDF('manuals/volute_manual.pdf')" class="button button--small button--mini button--secondary">보기</button>
+                                <a href="manuals/volute_manual.pdf" class="button button--small button--mini" download>다운로드</a>
+                            </div>
+                        </div>
+
+                        <!-- Dosing Pump -->
+                        <div class="resource__card">
+                            <div class="resource__info">
+                                <i class="ri-file-pdf-line resource__icon"></i>
+                                <span class="resource__name">정량펌프 유지관리지침서</span>
+                            </div>
+                            <div class="button-group" style="margin-top: 0;">
+                                <button onclick="openPDF('manuals/dosing_manual.pdf')" class="button button--small button--mini button--secondary">보기</button>
+                                <a href="manuals/dosing_manual.pdf" class="button button--small button--mini" download>다운로드</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">(주) 비에이텍</h3>
+                <p class="footer__description">깨끗한 물을 만드는 기술로 내일을 설계합니다.</p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">메뉴</h3>
+                <ul>
+                    <li><a href="index.html" class="footer__link">홈</a></li>
+                    <li><a href="about.html" class="footer__link">회사소개</a></li>
+                    <li><a href="equipment.html" class="footer__link">장비소개</a></li>
+                    <li><a href="contact.html" class="footer__link">문의하기</a></li>
+                    <li><a href="employee.html" class="footer__link" style="opacity: 0.4; font-size: 0.8rem; margin-top: 0.5rem; display: inline-block;"><i class="ri-lock-line"></i> 임직원 포털</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__subtitle">연락처</h3>
+                <p class="footer__info">주소: 강원 춘천시 퇴계공단2길 64</p>
+                <p class="footer__info">Tel: 033-264-9243</p>
+                <p class="footer__info">Fax: 033-251-5747</p>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2024 (주) 비에이텍. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox__close">&times;</span>
+        <img class="lightbox__content" id="lightbox-img">
+    </div>
+
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="pdf-modal">
+        <span class="pdf-modal__close" onclick="closePDF()">&times;</span>
+        <div class="pdf-modal__content">
+            <iframe id="pdf-iframe" class="pdf-modal__iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!-- Chatbot -->
+    <div id="chatbot-toggle" class="chatbot__toggle">
+        <i class="ri-chat-smile-3-line"></i>
+    </div>
+
+    <div id="chatbot-container" class="chatbot__container">
+        <div class="chat-header">
+            <span>비에이텍 실시간 상담</span>
+            <button id="chat-close" class="chat-close">?</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">안녕하세요! (주) 비에이텍입니다. 무엇을 도와드릴까요?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="메시지를 입력하세요...">
+            <button id="send-btn" class="send-btn">전송</button>
+        </div>
+    </div>
+
+    <!-- Brochure Flipbook Modal -->
+    <div id="brochure-modal" class="brochure-modal">
+        <div class="brochure-modal__overlay" onclick="closeBrochure()"></div>
+        <div class="brochure-modal__inner">
+            <button class="brochure-modal__close" onclick="closeBrochure()">
+                <i class="ri-close-line"></i>
+            </button>
+            <div class="brochure-flipbook__wrapper">
+                <div id="brochure-flipbook">
+                    <div class="page"><img src="assets/브로슈어 1장.png" alt="브로슈어 1페이지"></div>
+                    <div class="page"><img src="assets/브로슈어 2장.png" alt="브로슈어 2페이지"></div>
+                    <div class="page"><img src="assets/브로슈어 3장.png" alt="브로슈어 3페이지"></div>
+                    <div class="page"><img src="assets/브로슈어 4장.png" alt="브로슈어 4페이지"></div>
+                </div>
+            </div>
+            <div class="brochure-modal__nav">
+                <button class="brochure-nav__btn" id="brochure-prev">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <span class="brochure-page__info" id="brochure-page-info">1 / 4</span>
+                <button class="brochure-nav__btn" id="brochure-next">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
